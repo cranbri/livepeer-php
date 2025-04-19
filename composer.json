@@ -1,0 +1,32 @@
+{
+    "name": "cranbri/livepeer-php",
+    "description": "PHP client for the Livepeer Studio API",
+    "type": "library",
+    "version": "1.0.0",
+    "require": {
+        "php": "^8.1",
+        "saloonphp/saloon": "^3.11"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Cranbri\\Livepeer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tom Burman",
+            "email": "tburman@cranbri.agency"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require-dev": {
+        "pestphp/pest": "^3.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
