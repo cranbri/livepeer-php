@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Enums;
 
-enum ProfileType: string
+enum StreamProfiles: string
 {
     case H264BASELINE = 'H264Baseline';
     case H264MAIN = 'H264Main';

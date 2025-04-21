@@ -7,7 +7,7 @@ namespace Cranbri\Livepeer\Requests\Webhook;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetWebhookRequest extends Request
+class QueryUsageMetricsRequest extends Request
 {
     /**
      * The HTTP method
@@ -17,11 +17,11 @@ class GetWebhookRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * Create a new GetWebhookRequest instance
+     * Create a new QueryUsageMetricsRequest instance
      *
-     * @param string $webhookId
+     * @param array $filters
      */
-    public function __construct(protected string $webhookId)
+    public function __construct(protected array $filters = [])
     {}
 
     /**
@@ -31,6 +31,16 @@ class GetWebhookRequest extends Request
      */
     public function resolveEndpoint(): string
     {
-        return "/webhook/{$this->webhookId}";
+        return "/data/usage/query";
+    }
+
+    /**
+     * Define the query parameters
+     *
+     * @return array
+     */
+    protected function defaultQuery(): array
+    {
+        return $this->filters;
     }
 }

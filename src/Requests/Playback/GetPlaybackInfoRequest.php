@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Webhook;
+namespace Cranbri\Livepeer\Requests\Playback;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetWebhookRequest extends Request
+class GetPlaybackInfoRequest extends Request
 {
     /**
      * The HTTP method
@@ -17,11 +17,11 @@ class GetWebhookRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * Create a new GetWebhookRequest instance
+     * Create a new GetPlaybackInfoRequest instance
      *
-     * @param string $webhookId
+     * @param string $playbackId
      */
-    public function __construct(protected string $webhookId)
+    public function __construct(protected string $playbackId)
     {}
 
     /**
@@ -31,6 +31,6 @@ class GetWebhookRequest extends Request
      */
     public function resolveEndpoint(): string
     {
-        return "/webhook/{$this->webhookId}";
+        return "/task/{$this->playbackId}";
     }
 }

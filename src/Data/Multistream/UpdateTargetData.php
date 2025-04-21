@@ -17,7 +17,7 @@ class UpdateTargetData extends BaseData
      */
     public function __construct(
         public string $url,
-        public ?string $name,
+        public ?string $name = null,
         public ?bool $disabled = false
     ) {
     }

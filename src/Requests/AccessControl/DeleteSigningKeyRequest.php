@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Webhook;
+namespace Cranbri\Livepeer\Requests\AccessControl;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class DeleteWebhookRequest extends Request
+class DeleteSigningKeyRequest extends Request
 {
     /**
      * The HTTP method
@@ -17,11 +17,11 @@ class DeleteWebhookRequest extends Request
     protected Method $method = Method::DELETE;
 
     /**
-     * Create a new DeleteWebhookRequest instance
+     * Create a new DeleteSigningKeyRequest instance
      *
-     * @param string $webhookId
+     * @param string $keyId
      */
-    public function __construct(protected string $webhookId)
+    public function __construct(protected string $keyId)
     {}
 
     /**
@@ -31,6 +31,6 @@ class DeleteWebhookRequest extends Request
      */
     public function resolveEndpoint(): string
     {
-        return "/webhook/{$this->webhookId}";
+        return "/access-control/signing-key/{$this->keyId}";
     }
 }

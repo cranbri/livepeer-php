@@ -17,21 +17,12 @@ class GetTaskRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * The task ID
-     *
-     * @var string
-     */
-    protected string $taskId;
-
-    /**
      * Create a new GetTaskRequest instance
      *
      * @param string $taskId
      */
-    public function __construct(string $taskId)
-    {
-        $this->taskId = $taskId;
-    }
+    public function __construct(protected string $taskId)
+    {}
 
     /**
      * Define the endpoint for the request

@@ -17,23 +17,6 @@ class ListWebhooksRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * The filters to apply
-     *
-     * @var array
-     */
-    protected array $filters;
-
-    /**
-     * Create a new ListWebhooksRequest instance
-     *
-     * @param array $filters
-     */
-    public function __construct(array $filters = [])
-    {
-        $this->filters = $filters;
-    }
-
-    /**
      * Define the endpoint for the request
      *
      * @return string
@@ -41,15 +24,5 @@ class ListWebhooksRequest extends Request
     public function resolveEndpoint(): string
     {
         return '/webhook';
-    }
-
-    /**
-     * Define the query parameters
-     *
-     * @return array
-     */
-    protected function defaultQuery(): array
-    {
-        return $this->filters;
     }
 }

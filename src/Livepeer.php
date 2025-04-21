@@ -5,50 +5,67 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer;
 
+use Cranbri\Livepeer\Data\AccessControl\CreateSigningKeyData;
+use Cranbri\Livepeer\Data\AccessControl\UpdateSigningKeyData;
 use Cranbri\Livepeer\Data\Asset\AddMultistreamTargetData;
 use Cranbri\Livepeer\Data\Asset\CreateClipData;
+use Cranbri\Livepeer\Data\Asset\CreateTranscodingData;
 use Cranbri\Livepeer\Data\Asset\UpdateAssetData;
+use Cranbri\Livepeer\Data\Asset\UploadAssetData;
 use Cranbri\Livepeer\Data\Asset\UrlUploadAssetData;
+use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
 use Cranbri\Livepeer\Data\Multistream\UpdateTargetData;
+use Cranbri\Livepeer\Data\Stream\CreateLivestreamData;
 use Cranbri\Livepeer\Data\Stream\UpdateLivestreamData;
+use Cranbri\Livepeer\Data\Task\CreateTaskData;
+use Cranbri\Livepeer\Data\Webhook\CreateWebhookData;
+use Cranbri\Livepeer\Data\Webhook\UpdateWebhookData;
 use Cranbri\Livepeer\Exceptions\LivepeerException;
+use Cranbri\Livepeer\Requests\AccessControl\CreateSigningKeyRequest;
+use Cranbri\Livepeer\Requests\AccessControl\DeleteSigningKeyRequest;
+use Cranbri\Livepeer\Requests\AccessControl\GetSigningKeyRequest;
+use Cranbri\Livepeer\Requests\AccessControl\ListSigningKeysRequest;
+use Cranbri\Livepeer\Requests\AccessControl\UpdateSigningKeyRequest;
+use Cranbri\Livepeer\Requests\Asset\DeleteAssetRequest;
+use Cranbri\Livepeer\Requests\Asset\GetAssetRequest;
 use Cranbri\Livepeer\Requests\Asset\GetSessionRequest;
+use Cranbri\Livepeer\Requests\Asset\ListAssetsRequest;
 use Cranbri\Livepeer\Requests\Asset\ListRecordedSessionsRequest;
 use Cranbri\Livepeer\Requests\Asset\ListSessionClipsRequest;
 use Cranbri\Livepeer\Requests\Asset\ListSessionsRequest;
 use Cranbri\Livepeer\Requests\Asset\RequestUploadRequest;
-use Cranbri\Livepeer\Requests\Asset\DeleteAssetRequest;
-use Cranbri\Livepeer\Requests\Asset\GetAssetRequest;
-use Cranbri\Livepeer\Requests\Asset\ListAssetsRequest;
 use Cranbri\Livepeer\Requests\Asset\UpdateAssetRequest;
 use Cranbri\Livepeer\Requests\Asset\UrlUploadRequest;
-use Cranbri\Livepeer\Requests\Multistream\UpdateTargetRequest;
-use Cranbri\Livepeer\Requests\Stream\AddMultistreamTargetRequest;
-use Cranbri\Livepeer\Requests\Stream\CreateClipRequest;
-use Cranbri\Livepeer\Requests\Stream\CreateLivestreamRequest;
-use Cranbri\Livepeer\Requests\Stream\DeleteLivestreamRequest;
-use Cranbri\Livepeer\Requests\Stream\ListClipsRequest;
-use Cranbri\Livepeer\Requests\Stream\RemoveMultistreamTargetRequest;
-use Cranbri\Livepeer\Requests\Stream\TerminateLivestreamRequest;
-use Cranbri\Livepeer\Requests\Stream\GetLivestreamRequest;
-use Cranbri\Livepeer\Requests\Stream\ListLivestreamsRequest;
-use Cranbri\Livepeer\Requests\Stream\UpdateLivestreamRequest;
-use Cranbri\Livepeer\Requests\Task\CreateTaskRequest;
-use Cranbri\Livepeer\Requests\Task\GetTaskRequest;
-use Cranbri\Livepeer\Requests\Task\ListTasksRequest;
 use Cranbri\Livepeer\Requests\Multistream\CreateTargetRequest;
 use Cranbri\Livepeer\Requests\Multistream\DeleteTargetRequest;
 use Cranbri\Livepeer\Requests\Multistream\GetTargetRequest;
 use Cranbri\Livepeer\Requests\Multistream\ListTargetsRequest;
+use Cranbri\Livepeer\Requests\Multistream\UpdateTargetRequest;
+use Cranbri\Livepeer\Requests\Playback\GetPlaybackInfoRequest;
+use Cranbri\Livepeer\Requests\Stream\AddMultistreamTargetRequest;
+use Cranbri\Livepeer\Requests\Stream\CreateClipRequest;
+use Cranbri\Livepeer\Requests\Stream\CreateLivestreamRequest;
+use Cranbri\Livepeer\Requests\Stream\DeleteLivestreamRequest;
+use Cranbri\Livepeer\Requests\Stream\GetLivestreamRequest;
+use Cranbri\Livepeer\Requests\Stream\ListClipsRequest;
+use Cranbri\Livepeer\Requests\Stream\ListLivestreamsRequest;
+use Cranbri\Livepeer\Requests\Stream\RemoveMultistreamTargetRequest;
+use Cranbri\Livepeer\Requests\Stream\TerminateLivestreamRequest;
+use Cranbri\Livepeer\Requests\Stream\UpdateLivestreamRequest;
+use Cranbri\Livepeer\Requests\Task\CreateTaskRequest;
+use Cranbri\Livepeer\Requests\Task\GetTaskRequest;
+use Cranbri\Livepeer\Requests\Task\ListTasksRequest;
+use Cranbri\Livepeer\Requests\Transcode\TranscodeVideoRequest;
 use Cranbri\Livepeer\Requests\Webhook\CreateWebhookRequest;
 use Cranbri\Livepeer\Requests\Webhook\DeleteWebhookRequest;
 use Cranbri\Livepeer\Requests\Webhook\GetWebhookRequest;
 use Cranbri\Livepeer\Requests\Webhook\ListWebhooksRequest;
-use Cranbri\Livepeer\Data\Asset\UploadAssetData;
-use Cranbri\Livepeer\Data\Stream\CreateLivestreamData;
-use Cranbri\Livepeer\Data\Task\CreateTaskData;
-use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
-use Cranbri\Livepeer\Data\Webhook\CreateWebhookData;
+use Cranbri\Livepeer\Requests\Webhook\QueryCreatorViewershipMetricsRequest;
+use Cranbri\Livepeer\Requests\Webhook\QueryPublicTotalViewsMetricsRequest;
+use Cranbri\Livepeer\Requests\Webhook\QueryRealtimeViewershipRequest;
+use Cranbri\Livepeer\Requests\Webhook\QueryUsageMetricsRequest;
+use Cranbri\Livepeer\Requests\Webhook\QueryViewershipMetricsRequest;
+use Cranbri\Livepeer\Requests\Webhook\UpdateWebhookRequest;
 use Exception;
 use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\Request;
@@ -87,7 +104,7 @@ class Livepeer
     /**
      * Send a request and handle exceptions
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return Response
      * @throws LivepeerException
      */
@@ -107,7 +124,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function requestAssetUpload(UploadAssetData $data) : mixed
+    public function requestAssetUpload(UploadAssetData $data): mixed
     {
         return $this->send(new RequestUploadRequest(data: $data))->json();
     }
@@ -119,7 +136,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function uploadAssetFromUrl(UrlUploadAssetData $data) : mixed
+    public function uploadAssetFromUrl(UrlUploadAssetData $data): mixed
     {
         return $this->send(new UrlUploadRequest(data: $data))->json();
     }
@@ -131,7 +148,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function getAsset(string $assetId) : mixed
+    public function getAsset(string $assetId): mixed
     {
         return $this->send(new GetAssetRequest(assetId: $assetId))->json();
     }
@@ -140,11 +157,11 @@ class Livepeer
      * Update an asset by ID
      *
      * @param  string  $assetId
-     * @param UpdateAssetData $data
+     * @param  UpdateAssetData  $data
      * @return mixed
      * @throws Exception
      */
-    public function updateAsset(string $assetId, UpdateAssetData $data) : mixed
+    public function updateAsset(string $assetId, UpdateAssetData $data): mixed
     {
         return $this->send(new UpdateAssetRequest(assetId: $assetId, data: $data))->json();
     }
@@ -155,7 +172,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function listAssets() : mixed
+    public function listAssets(): mixed
     {
         return $this->send(new ListAssetsRequest)->json();
     }
@@ -179,7 +196,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function createLivestream(CreateLivestreamData $data) : mixed
+    public function createLivestream(CreateLivestreamData $data): mixed
     {
         return $this->send(new CreateLivestreamRequest(data: $data))->json();
     }
@@ -200,7 +217,7 @@ class Livepeer
      * Update a livestream by ID
      *
      * @param  string  $streamId
-     * @param UpdateLivestreamData $data
+     * @param  UpdateLivestreamData  $data
      * @return mixed
      * @throws Exception
      */
@@ -216,7 +233,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function listLivestreams(array $filters = []) : mixed
+    public function listLivestreams(array $filters = []): mixed
     {
         return $this->send(new ListLivestreamsRequest(filters: $filters))->json();
     }
@@ -228,7 +245,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function deleteLivestream(string $streamId) : mixed
+    public function deleteLivestream(string $streamId): mixed
     {
         return $this->send(new DeleteLivestreamRequest(streamId: $streamId))->json();
     }
@@ -240,7 +257,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function terminateLivestream(string $streamId) : mixed
+    public function terminateLivestream(string $streamId): mixed
     {
         return $this->send(new TerminateLivestreamRequest(streamId: $streamId))->json();
     }
@@ -249,11 +266,11 @@ class Livepeer
      * Add a multistream target to the livestream
      *
      * @param  string  $streamId
-     * @param AddMultistreamTargetData $data
+     * @param  AddMultistreamTargetData  $data
      * @return mixed
      * @throws Exception
      */
-    public function addMultistreamTarget(string $streamId, AddMultistreamTargetData $data) : mixed
+    public function addMultistreamTarget(string $streamId, AddMultistreamTargetData $data): mixed
     {
         return $this->send(new AddMultistreamTargetRequest(streamId: $streamId, data: $data))->json();
     }
@@ -262,11 +279,11 @@ class Livepeer
      * Remove a multistream target to the livestream
      *
      * @param  string  $streamId
-     * @param string $targetId
+     * @param  string  $targetId
      * @return mixed
      * @throws Exception
      */
-    public function removeMultistreamTarget(string $streamId, string $targetId) : mixed
+    public function removeMultistreamTarget(string $streamId, string $targetId): mixed
     {
         return $this->send(new RemoveMultistreamTargetRequest(streamId: $streamId, targetId: $targetId))->json();
     }
@@ -274,11 +291,11 @@ class Livepeer
     /**
      * Create a clip of the livestream
      *
-     * @param CreateClipData $data
+     * @param  CreateClipData  $data
      * @return mixed
      * @throws Exception
      */
-    public function createClip(CreateClipData $data) : mixed
+    public function createClip(CreateClipData $data): mixed
     {
         return $this->send(new CreateClipRequest(data: $data))->json();
     }
@@ -286,25 +303,13 @@ class Livepeer
     /**
      * Get a list of clips from the livestream
      *
-     * @param string $streamId
+     * @param  string  $streamId
      * @return mixed
      * @throws Exception
      */
-    public function listClips(string $streamId) : mixed
+    public function listClips(string $streamId): mixed
     {
         return $this->send(new ListClipsRequest(streamId: $streamId))->json();
-    }
-
-    /**
-     * Create a new task
-     *
-     * @param  CreateTaskData  $data
-     * @return mixed
-     * @throws Exception
-     */
-    public function createTask(CreateTaskData $data)
-    {
-        return $this->send(new CreateTaskRequest($data))->json();
     }
 
     /**
@@ -314,7 +319,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function getTask(string $taskId)
+    public function getTask(string $taskId) : mixed
     {
         return $this->send(new GetTaskRequest($taskId))->json();
     }
@@ -322,13 +327,12 @@ class Livepeer
     /**
      * List all tasks
      *
-     * @param  array  $filters
      * @return mixed
      * @throws Exception
      */
-    public function listTasks(array $filters = [])
+    public function listTasks() : mixed
     {
-        return $this->send(new ListTasksRequest($filters))->json();
+        return $this->send(new ListTasksRequest)->json();
     }
 
     /**
@@ -338,7 +342,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function createMultistreamTarget(CreateTargetData $data)
+    public function createMultistreamTarget(CreateTargetData $data) : mixed
     {
         return $this->send(new CreateTargetRequest($data))->json();
     }
@@ -350,7 +354,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function getMultistreamTarget(string $targetId)
+    public function getMultistreamTarget(string $targetId) : mixed
     {
         return $this->send(new GetTargetRequest(targetId: $targetId))->json();
     }
@@ -359,11 +363,11 @@ class Livepeer
      * Update a multistream target by ID
      *
      * @param  string  $targetId
-     * @param UpdateTargetData $data
+     * @param  UpdateTargetData  $data
      * @return mixed
      * @throws Exception
      */
-    public function updateMultistreamTarget(string $targetId, UpdateTargetData $data)
+    public function updateMultistreamTarget(string $targetId, UpdateTargetData $data) : mixed
     {
         return $this->send(new UpdateTargetRequest(targetId: $targetId, data: $data))->json();
     }
@@ -374,7 +378,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function listMultistreamTargets()
+    public function listMultistreamTargets() : mixed
     {
         return $this->send(new ListTargetsRequest)->json();
     }
@@ -386,7 +390,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function deleteMultistreamTarget(string $targetId)
+    public function deleteMultistreamTarget(string $targetId) : mixed
     {
         return $this->send(new DeleteTargetRequest(targetId: $targetId))->json();
     }
@@ -398,7 +402,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function getSession(string $sessionId)
+    public function getSession(string $sessionId) : mixed
     {
         return $this->send(new GetSessionRequest(sessionId: $sessionId))->json();
     }
@@ -409,7 +413,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function listSessions()
+    public function listSessions() : mixed
     {
         return $this->send(new ListSessionsRequest)->json();
     }
@@ -421,7 +425,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function listRecordedSessions(string $parentId)
+    public function listRecordedSessions(string $parentId) : mixed
     {
         return $this->send(new ListRecordedSessionsRequest(parentId: $parentId))->json();
     }
@@ -433,9 +437,68 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function listSessionClips(string $sessionId)
+    public function listSessionClips(string $sessionId) : mixed
     {
         return $this->send(new ListSessionClipsRequest(sessionId: $sessionId))->json();
+    }
+
+    /**
+     * Create a new signing key
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function createSigningKey() : mixed
+    {
+        return $this->send(new CreateSigningKeyRequest)->json();
+    }
+
+    /**
+     * Get a signing key by ID
+     *
+     * @param  string  $keyId
+     * @return mixed
+     * @throws Exception
+     */
+    public function getSigningKey(string $keyId) : mixed
+    {
+        return $this->send(new GetSigningKeyRequest(keyId: $keyId))->json();
+    }
+
+    /**
+     * Update a signing key by ID
+     *
+     * @param  string  $keyId
+     * @param  UpdateSigningKeyData  $data
+     * @return mixed
+     * @throws Exception
+     */
+    public function updateSigningKey(string $keyId, UpdateSigningKeyData $data) : mixed
+    {
+        return $this->send(new UpdateSigningKeyRequest(keyId: $keyId, data: $data))->json();
+    }
+
+    /**
+     * List all signing keys
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function listSigningKeys() : mixed
+    {
+        return $this->send(new ListSigningKeysRequest)->json();
+    }
+
+    /**
+     * Delete a signing key by ID
+     *
+     * @param  string  $keyId
+     * @return mixed
+     * @throws Exception
+     */
+    public function deleteSigningKey(string $keyId) : mixed
+    {
+        return $this->send(new DeleteSigningKeyRequest(keyId: $keyId))->json();
     }
 
     /**
@@ -445,7 +508,7 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function createWebhook(CreateWebhookData $data)
+    public function createWebhook(CreateWebhookData $data) : mixed
     {
         return $this->send(new CreateWebhookRequest($data))->json();
     }
@@ -457,21 +520,33 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function getWebhook(string $webhookId)
+    public function getWebhook(string $webhookId) : mixed
     {
         return $this->send(new GetWebhookRequest($webhookId))->json();
     }
 
     /**
-     * List all webhooks
+     * Update a webhook by ID
      *
-     * @param  array  $filters
+     * @param  string  $webhookId
+     * @param  UpdateWebhookData  $data
      * @return mixed
      * @throws Exception
      */
-    public function listWebhooks(array $filters = [])
+    public function updateWebhook(string $webhookId, UpdateWebhookData $data) : mixed
     {
-        return $this->send(new ListWebhooksRequest($filters))->json();
+        return $this->send(new UpdateWebhookRequest(webhookId: $webhookId, data: $data))->json();
+    }
+
+    /**
+     * List all webhooks
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function listWebhooks() : mixed
+    {
+        return $this->send(new ListWebhooksRequest)->json();
     }
 
     /**
@@ -481,8 +556,92 @@ class Livepeer
      * @return mixed
      * @throws Exception
      */
-    public function deleteWebhook(string $webhookId)
+    public function deleteWebhook(string $webhookId) : mixed
     {
         return $this->send(new DeleteWebhookRequest($webhookId))->json();
+    }
+
+    /**
+     * Get a playback info by ID
+     *
+     * @param  string  $playbackId
+     * @return mixed
+     * @throws Exception
+     */
+    public function getPlaybackInfo(string $playbackId) : mixed
+    {
+        return $this->send(new GetPlaybackInfoRequest($playbackId))->json();
+    }
+
+    /**
+     * Create a new video transcoding
+     *
+     * @param  CreateTranscodingData  $data
+     * @return mixed
+     * @throws Exception
+     */
+    public function transcodeVideo(CreateTranscodingData $data) : mixed
+    {
+        return $this->send(new TranscodeVideoRequest($data))->json();
+    }
+
+    /**
+     * Query Realtime Viewership
+     *
+     * @param  array  $filters
+     * @return mixed
+     * @throws Exception
+     */
+    public function queryRealtimeViewership(array $filters = []): mixed
+    {
+        return $this->send(new QueryRealtimeViewershipRequest(filters: $filters))->json();
+    }
+
+    /**
+     * Query Viewership Metrics
+     *
+     * @param  array  $filters
+     * @return mixed
+     * @throws Exception
+     */
+    public function queryViewershipMetrics(array $filters = []): mixed
+    {
+        return $this->send(new QueryViewershipMetricsRequest(filters: $filters))->json();
+    }
+
+    /**
+     * Query Usage Metrics
+     *
+     * @param  array  $filters
+     * @return mixed
+     * @throws Exception
+     */
+    public function queryUsageMetrics(array $filters = []): mixed
+    {
+        return $this->send(new QueryUsageMetricsRequest(filters: $filters))->json();
+    }
+
+    /**
+     * Query Public Total Views Metrics
+     *
+     * @param  string  $playbackId
+     * @return mixed
+     * @throws Exception
+     */
+    public function queryPublicTotalViewsMetrics(string $playbackId): mixed
+    {
+        return $this->send(new QueryPublicTotalViewsMetricsRequest(playbackId: $playbackId))->json();
+    }
+
+    /**
+     * Query creator viewership metrics
+     *
+     * @param  array  $filters
+     * @return mixed
+     * @throws Exception
+     */
+    public function queryCreatorViewershipMetrics(array $filters = []): mixed
+    {
+        return $this->send(new QueryCreatorViewershipMetricsRequest(filters: $filters))->json();
     }
 }

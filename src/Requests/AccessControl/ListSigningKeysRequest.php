@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Webhook;
+namespace Cranbri\Livepeer\Requests\AccessControl;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetWebhookRequest extends Request
+class ListSigningKeysRequest extends Request
 {
     /**
      * The HTTP method
@@ -17,20 +17,12 @@ class GetWebhookRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * Create a new GetWebhookRequest instance
-     *
-     * @param string $webhookId
-     */
-    public function __construct(protected string $webhookId)
-    {}
-
-    /**
      * Define the endpoint for the request
      *
      * @return string
      */
     public function resolveEndpoint(): string
     {
-        return "/webhook/{$this->webhookId}";
+        return "access-control/signing-key";
     }
 }

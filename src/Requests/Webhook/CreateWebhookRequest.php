@@ -22,21 +22,12 @@ class CreateWebhookRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * The webhook data
-     *
-     * @var CreateWebhookData
-     */
-    protected CreateWebhookData $data;
-
-    /**
      * Create a new CreateWebhookRequest instance
      *
      * @param CreateWebhookData $data
      */
-    public function __construct(CreateWebhookData $data)
-    {
-        $this->data = $data;
-    }
+    public function __construct(protected CreateWebhookData $data)
+    {}
 
     /**
      * Define the endpoint for the request

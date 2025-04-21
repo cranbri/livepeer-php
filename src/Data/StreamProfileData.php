@@ -7,7 +7,7 @@ namespace Cranbri\Livepeer\Data\Stream;
 
 use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Enums\EncoderType;
-use Cranbri\Livepeer\Enums\ProfileType;
+use Cranbri\Livepeer\Enums\StreamProfiles;
 
 class StreamProfileData extends BaseData
 {
@@ -23,7 +23,7 @@ class StreamProfileData extends BaseData
      * @param  ?string  $gop
      * @param  ?string  $encoderPreset  The encoder preset of the profile
      * @param  ?int $quality Restricts the size of the output video using the constant quality feature. Increasing this value will result in a lower quality video. Note that this parameter might not work if the transcoder lacks support for it.
-     * @param  ?ProfileType $profile,
+     * @param  ?StreamProfiles $profile,
      * @param  ?EncoderType $encoder
      */
     public function __construct(
@@ -36,7 +36,7 @@ class StreamProfileData extends BaseData
         public ?string $gop = null,
         public ?string $encoderPreset = null,
         public ?int $quality = null,
-        public ?ProfileType $profile = null,
+        public ?StreamProfiles $profile = null,
         public ?EncoderType $encoder = null,
     ) {
     }

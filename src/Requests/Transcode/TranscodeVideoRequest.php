@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Task;
+namespace Cranbri\Livepeer\Requests\Transcode;
 
-use Cranbri\Livepeer\Data\Task\CreateTaskData;
+use Cranbri\Livepeer\Data\Asset\CreateTranscodingData;
+use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class CreateTaskRequest extends Request implements HasBody
+class TranscodeVideoRequest extends Request implements HasBody
 {
     use HasJsonBody;
 
@@ -22,21 +23,12 @@ class CreateTaskRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * The task data
+     * Create a new TranscodeVideoRequest instance
      *
-     * @var CreateTaskData
+     * @param CreateTranscodingData $data
      */
-    protected CreateTaskData $data;
-
-    /**
-     * Create a new CreateTaskRequest instance
-     *
-     * @param CreateTaskData $data
-     */
-    public function __construct(CreateTaskData $data)
-    {
-        $this->data = $data;
-    }
+    public function __construct(protected CreateTranscodingData $data)
+    {}
 
     /**
      * Define the endpoint for the request
@@ -45,7 +37,7 @@ class CreateTaskRequest extends Request implements HasBody
      */
     public function resolveEndpoint(): string
     {
-        return '/task';
+        return "/transcode";
     }
 
     /**
