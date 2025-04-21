@@ -22,7 +22,15 @@ abstract class BaseData
             $value = $property->getValue($this);
 
             if ($value !== null) {
-                $array[$name] = $value;
+
+                if ($value instanceof \BackedEnum) {
+                    $array[$name] = $value->value;
+                } elseif ($value instanceof BaseData) {
+                    $array[$name] = $value->toArray();
+                } else {
+                    $array[$name] = $value;
+                }
+
             }
         }
 

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Asset;
+namespace Cranbri\Livepeer\Requests\Stream;
 
-use Cranbri\Livepeer\Data\Asset\CreateAssetData;
+use Cranbri\Livepeer\Data\Stream\CreateLivestreamData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class CreateAssetRequest extends Request implements HasBody
+class CreateLivestreamRequest extends Request implements HasBody
 {
     use HasJsonBody;
 
@@ -22,21 +22,12 @@ class CreateAssetRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     /**
-     * The asset data
+     * Create a new CreateStreamRequest instance
      *
-     * @var CreateAssetData
+     * @param CreateLivestreamData $data
      */
-    protected CreateAssetData $data;
-
-    /**
-     * Create a new CreateAssetRequest instance
-     *
-     * @param CreateAssetData $data
-     */
-    public function __construct(CreateAssetData $data)
-    {
-        $this->data = $data;
-    }
+    public function __construct(protected CreateLivestreamData $data)
+    { }
 
     /**
      * Define the endpoint for the request
@@ -45,7 +36,7 @@ class CreateAssetRequest extends Request implements HasBody
      */
     public function resolveEndpoint(): string
     {
-        return '/asset';
+        return '/stream';
     }
 
     /**

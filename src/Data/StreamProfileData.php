@@ -6,26 +6,38 @@ declare(strict_types=1);
 namespace Cranbri\Livepeer\Data\Stream;
 
 use Cranbri\Livepeer\Data\BaseData;
+use Cranbri\Livepeer\Enums\EncoderType;
+use Cranbri\Livepeer\Enums\ProfileType;
 
 class StreamProfileData extends BaseData
 {
     /**
      * Create a new StreamProfileData instance
      *
-     * @param  string  $name  The name of the profile
-     * @param  int  $width  The width of the profile
-     * @param  int  $height  The height of the profile
-     * @param  int|null  $fps  The framerate of the profile
-     * @param  int|null  $bitrate  The bitrate of the profile
-     * @param  string|null  $encoderPreset  The encoder preset of the profile
+     * @param  int  $bitrate  The bitrate of the profile
+     * @param  ?string  $name  The name of the profile
+     * @param  ?int  $width  The width of the profile
+     * @param  ?int  $height  The height of the profile
+     * @param  ?int  $fps  The framerate of the profile
+     * @param  ?int  $fpsDen
+     * @param  ?string  $gop
+     * @param  ?string  $encoderPreset  The encoder preset of the profile
+     * @param  ?int $quality Restricts the size of the output video using the constant quality feature. Increasing this value will result in a lower quality video. Note that this parameter might not work if the transcoder lacks support for it.
+     * @param  ?ProfileType $profile,
+     * @param  ?EncoderType $encoder
      */
     public function __construct(
-        public string $name,
-        public int $width,
-        public int $height,
+        public int $bitrate,
+        public ?string $name = null,
+        public ?int $width = null,
+        public ?int $height = null,
         public ?int $fps = null,
-        public ?int $bitrate = null,
-        public ?string $encoderPreset = null
+        public ?int $fpsDen = null,
+        public ?string $gop = null,
+        public ?string $encoderPreset = null,
+        public ?int $quality = null,
+        public ?ProfileType $profile = null,
+        public ?EncoderType $encoder = null,
     ) {
     }
 
@@ -43,11 +55,11 @@ class StreamProfileData extends BaseData
         int $bitrate = 3000000
     ): self {
         return new self(
+            bitrate: $bitrate,
             name: $name,
             width: 1280,
             height: 720,
-            fps: $fps,
-            bitrate: $bitrate
+            fps: $fps
         );
     }
 
@@ -65,11 +77,11 @@ class StreamProfileData extends BaseData
         int $bitrate = 6000000
     ): self {
         return new self(
+            bitrate: $bitrate,
             name: $name,
             width: 1920,
             height: 1080,
-            fps: $fps,
-            bitrate: $bitrate
+            fps: $fps
         );
     }
 
@@ -87,11 +99,11 @@ class StreamProfileData extends BaseData
         int $bitrate = 1000000
     ): self {
         return new self(
+            bitrate: $bitrate,
             name: $name,
             width: 854,
             height: 480,
-            fps: $fps,
-            bitrate: $bitrate
+            fps: $fps
         );
     }
 
@@ -109,31 +121,11 @@ class StreamProfileData extends BaseData
         int $bitrate = 20000000
     ): self {
         return new self(
+            bitrate: $bitrate,
             name: $name,
             width: 3840,
             height: 2160,
-            fps: $fps,
-            bitrate: $bitrate
-        );
-    }
-
-    /**
-     * Static method to create a 4K profile at 60fps
-     *
-     * @param string $name
-     * @param int $bitrate
-     * @return static
-     */
-    public static function uhd4k60(
-        string $name = '4K60',
-        int $bitrate = 35000000
-    ): self {
-        return new self(
-            name: $name,
-            width: 3840,
-            height: 2160,
-            fps: 60,
-            bitrate: $bitrate
+            fps: $fps
         );
     }
 }
