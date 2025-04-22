@@ -1,6 +1,18 @@
 {
     "name": "cranbri/livepeer-php",
     "description": "PHP client for the Livepeer Studio API",
+    "keywords": ["livepeer", "api", "sdk", "video", "streaming"],
+    "homepage": "https://github.com/cranbri/livepeer-php",
+    "support": {
+        "issues": "https://github.com/cranbri/livepeer-php/issues",
+        "source": "https://github.com/cranbri/livepeer-php"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/just-tom"
+        }
+    ]
     "type": "library",
     "version": "1.0.0",
     "require": {
@@ -30,11 +42,24 @@
         "pestphp/pest": "^3.8",
         "jonpurvis/lawman": "^4.0",
         "friendsofphp/php-cs-fixer": "^3.75",
-        "phpstan/phpstan": "^2.1"
+        "phpstan/phpstan": "^2.1",
+        "captainhook/captainhook": "^5.25"
     },
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "cs:check": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "vendor/bin/php-cs-fixer fix",
+        "stan": "vendor/bin/phpstan analyse",
+        "check": [
+            "@cs:check",
+            "@stan",
+            "@test"
+        ]
     }
 }
