@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Requests\AccessControl;
 
+
 use Cranbri\Livepeer\Data\AccessControl\UpdateSigningKeyData;
-use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
-use Cranbri\Livepeer\Data\Multistream\UpdateTargetData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Webhook;
+namespace Cranbri\Livepeer\Requests\Viewership;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

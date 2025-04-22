@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Requests\Multistream;
 
-use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
 use Cranbri\Livepeer\Data\Multistream\UpdateTargetData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Data\Asset;
+namespace Cranbri\Livepeer\Data\Livestream;
 
 use Cranbri\Livepeer\Data\BaseData;
 

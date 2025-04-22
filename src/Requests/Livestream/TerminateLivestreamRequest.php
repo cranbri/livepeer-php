@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Stream;
+namespace Cranbri\Livepeer\Requests\Livestream;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

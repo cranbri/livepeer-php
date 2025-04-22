@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Data\Asset;
-
-use Cranbri\Livepeer\Data\BaseData;
+namespace Cranbri\Livepeer\Data;
 
 class StorageData extends BaseData
 {

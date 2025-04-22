@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Data\Asset;
+namespace Cranbri\Livepeer\Data\Transcode;
 
 use Cranbri\Livepeer\Data\BaseData;
-use Cranbri\Livepeer\Data\Stream\StreamProfileData;
 
 class Web3CredentialsData extends BaseData
 {

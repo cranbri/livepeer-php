@@ -3,9 +3,8 @@
 declare(strict_types=1);
 
 
-namespace Cranbri\Livepeer\Data\Stream;
+namespace Cranbri\Livepeer\Data;
 
-use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Enums\EncoderType;
 use Cranbri\Livepeer\Enums\StreamProfiles;
 

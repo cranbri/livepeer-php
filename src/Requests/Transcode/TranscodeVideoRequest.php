@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Requests\Transcode;
 
-use Cranbri\Livepeer\Data\Asset\CreateTranscodingData;
-use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
+use Cranbri\Livepeer\Data\Transcode\CreateTranscodingData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

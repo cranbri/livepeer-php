@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Stream;
+namespace Cranbri\Livepeer\Requests\Livestream;
 
-use Cranbri\Livepeer\Data\Asset\CreateClipData;
-use Cranbri\Livepeer\Data\Stream\CreateLivestreamData;
+use Cranbri\Livepeer\Data\Livestream\CreateClipData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

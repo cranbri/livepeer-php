@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Data\Asset;
+namespace Cranbri\Livepeer\Data\Transcode\Storage;
+
 
 use Cranbri\Livepeer\Data\BaseData;
-use Cranbri\Livepeer\Data\Stream\StreamProfileData;
-use Cranbri\Livepeer\Enums\TranscodeInputType;
+use Cranbri\Livepeer\Data\Transcode\Web3CredentialsData;
 use Cranbri\Livepeer\Enums\TranscodeStorageType;
 
 class Web3StorageData extends BaseData

@@ -13,6 +13,11 @@
             "Cranbri\\Livepeer\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Tom Burman",
@@ -22,7 +27,8 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require-dev": {
-        "pestphp/pest": "^3.8"
+        "pestphp/pest": "^3.8",
+        "jonpurvis/lawman": "^4.0"
     },
     "config": {
         "allow-plugins": {

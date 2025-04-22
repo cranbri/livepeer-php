@@ -2,13 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Data\Stream;
+namespace Cranbri\Livepeer\Data\Livestream;
 
-use Cranbri\Livepeer\Data\Asset\CreatorIdData;
-use Cranbri\Livepeer\Data\Asset\LivestreamPullData;
-use Cranbri\Livepeer\Data\Asset\MultistreamData;
-use Cranbri\Livepeer\Data\Asset\PlaybackPolicyData;
-use Cranbri\Livepeer\Data\Asset\RecordingSpecData;
+use Cranbri\Livepeer\Data\CreatorIdData;
+use Cranbri\Livepeer\Data\PlaybackPolicyData;
+use Cranbri\Livepeer\Data\StreamProfileData;
 use Cranbri\Livepeer\Data\BaseData;
 
 class CreateLivestreamData extends BaseData

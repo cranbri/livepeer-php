@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Data\AccessControl;
 
+
 use Cranbri\Livepeer\Data\BaseData;
 
 class UpdateSigningKeyData extends BaseData

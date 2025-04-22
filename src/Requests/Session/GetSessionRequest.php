@@ -2,13 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Cranbri\Livepeer\Requests\Asset;
+namespace Cranbri\Livepeer\Requests\Session;
 
-use Cranbri\Livepeer\Data\Asset\UrlUploadAssetData;
-use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 
 class GetSessionRequest extends Request
 {
