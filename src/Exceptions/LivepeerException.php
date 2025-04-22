@@ -57,7 +57,7 @@ final class LivepeerException extends Exception
     public static function fromResponse(Response $response): self
     {
         $body = $response->json();
-        $message = $body['message'] ?? $body['error'] ?? 'Unknown Livepeer API error';
+        $message = is_string($body['message'] ?? null) ? $body['message'] : (is_string($body['error'] ?? null) ? $body['error'] : 'Unknown Livepeer API error');
         $code = $response->status();
 
         return new static(message: $message, code: $code, response: $response);
