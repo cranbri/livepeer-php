@@ -9,7 +9,7 @@ abstract class BaseData
     /**
      * Convert the DTO to an array
      *
-     * @return array
+     * @return array<mixed>
      */
     public function toArray(): array
     {
@@ -29,7 +29,7 @@ abstract class BaseData
         return $array;
     }
 
-    private function processValue($value)
+    private function processValue(mixed $value) : mixed
     {
         if ($value instanceof \BackedEnum) {
             return $value->value;

@@ -45,7 +45,7 @@ class StreamProfileData extends BaseData
      * @param  string  $name
      * @param  int  $fps
      * @param  int  $bitrate
-     * @return static
+     * @return StreamProfileData
      */
     public static function hd720(
         string $name = '720p',
@@ -67,7 +67,7 @@ class StreamProfileData extends BaseData
      * @param  string  $name
      * @param  int  $fps
      * @param  int  $bitrate
-     * @return static
+     * @return StreamProfileData
      */
     public static function hd1080(
         string $name = '1080p',
@@ -89,7 +89,7 @@ class StreamProfileData extends BaseData
      * @param  string  $name
      * @param  int  $fps
      * @param  int  $bitrate
-     * @return static
+     * @return StreamProfileData
      */
     public static function sd480(
         string $name = '480p',
@@ -111,7 +111,7 @@ class StreamProfileData extends BaseData
      * @param string $name
      * @param int $fps
      * @param int $bitrate
-     * @return static
+     * @return StreamProfileData
      */
     public static function uhd4k(
         string $name = '4K',

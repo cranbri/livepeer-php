@@ -13,9 +13,9 @@ class PlaybackPolicyData extends BaseData
      *
      * @param  PlaybackPolicyType  $type  The type of playback policy (public, jwt, webhook)
      * @param ?string  $webhookId  The ID of the webhook to use (required if type is webhook)
-     * @param ?array  $webhookContext  Additional context to send to the webhook
+     * @param ?array<string,string>  $webhookContext  Additional context to send to the webhook
      * @param ?int  $refreshInterval  Interval (in seconds) at which the playback policy should be refreshed (default 600 seconds)
-     * @param ?array  $allowedOrigins  List of allowed origins for CORS playback (<scheme>://<hostname>:<port>, <scheme>://<hostname>)
+     * @param ?array<string>  $allowedOrigins  List of allowed origins for CORS playback (<scheme>://<hostname>:<port>, <scheme>://<hostname>)
      */
     public function __construct(
         public PlaybackPolicyType $type = PlaybackPolicyType::PUBLIC,
@@ -29,7 +29,7 @@ class PlaybackPolicyData extends BaseData
     /**
      * Create a public playback policy
      *
-     * @return static
+     * @return PlaybackPolicyData
      */
     public static function public(): self
     {
@@ -39,7 +39,7 @@ class PlaybackPolicyData extends BaseData
     /**
      * Create a JWT playback policy
      *
-     * @return static
+     * @return PlaybackPolicyData
      */
     public static function jwt(): self
     {
@@ -50,8 +50,8 @@ class PlaybackPolicyData extends BaseData
      * Create a webhook playback policy
      *
      * @param  string  $webhookId  The ID of the webhook to use
-     * @param  array|null  $webhookContext  Additional context to send to the webhook
-     * @return static
+     * @param  array<string,string>|null  $webhookContext  Additional context to send to the webhook
+     * @return PlaybackPolicyData
      */
     public static function webhook(string $webhookId, ?array $webhookContext = null): self
     {

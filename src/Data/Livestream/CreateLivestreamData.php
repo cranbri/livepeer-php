@@ -31,7 +31,7 @@ class CreateLivestreamData extends BaseData
         public ?array $profiles = null,
         public ?bool $record = null,
         public ?RecordingSpecData $recordingSpec = null,
-        public ?MultiStreamData $multistream = null
+        public ?MultistreamData $multistream = null
     ) {
     }
 }

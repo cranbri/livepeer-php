@@ -33,7 +33,7 @@ class UpdateLivestreamData extends BaseData
         public ?bool $record = null,
         public ?bool $suspended = null,
         public ?RecordingSpecData $recordingSpec = null,
-        public ?MultiStreamData $multistream = null
+        public ?MultistreamData $multistream = null
     ) {
     }
 }

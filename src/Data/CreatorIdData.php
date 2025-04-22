@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Data;
 
-use CreatorIdType;
+use Cranbri\Livepeer\Enums\CreatorIdType;
 
 class CreatorIdData extends BaseData
 {

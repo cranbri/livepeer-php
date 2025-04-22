@@ -11,9 +11,9 @@ class TranscodeOutputData extends BaseData
     /**
      * Create a new TranscodeOutputData instance
      *
-     * @param  array $hls Must contain array key 'path'
-     * @param  array $mpf Must contain array key 'path'
-     * @param  array $fmp4 Must contain array key 'path'
+     * @param  array<string,string> $hls Must contain array key 'path'
+     * @param  array<string,string> $mp4 Must contain array key 'path'
+     * @param  array<string,string> $fmp4 Must contain array key 'path'
     */
     public function __construct(
         public array $hls,

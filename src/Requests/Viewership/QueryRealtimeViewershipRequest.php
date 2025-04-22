@@ -19,7 +19,7 @@ class QueryRealtimeViewershipRequest extends Request
     /**
      * Create a new QueryRealtimeViewershipRequest instance
      *
-     * @param array $filters
+     * @param array<string,string> $filters
      */
     public function __construct(protected array $filters = [])
     {
@@ -38,7 +38,7 @@ class QueryRealtimeViewershipRequest extends Request
     /**
      * Define the query parameters
      *
-     * @return array
+     * @return array<mixed>
      */
     protected function defaultQuery(): array
     {

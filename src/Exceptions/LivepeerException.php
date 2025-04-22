@@ -7,7 +7,7 @@ namespace Cranbri\Livepeer\Exceptions;
 use Exception;
 use Saloon\Http\Response;
 
-class LivepeerException extends Exception
+final class LivepeerException extends Exception
 {
     /**
      * Create a new exception instance
@@ -37,7 +37,7 @@ class LivepeerException extends Exception
     /**
      * Get the response body as an array
      *
-     * @return array|null
+     * @return array<mixed>|null
      */
     public function getResponseBody(): ?array
     {
@@ -52,7 +52,7 @@ class LivepeerException extends Exception
      * Create a new exception from a response
      *
      * @param Response $response
-     * @return static
+     * @return LivepeerException
      */
     public static function fromResponse(Response $response): self
     {
@@ -60,6 +60,6 @@ class LivepeerException extends Exception
         $message = $body['message'] ?? $body['error'] ?? 'Unknown Livepeer API error';
         $code = $response->status();
 
-        return new static($message, $code, $response);
+        return new static(message: $message, code: $code, response: $response);
     }
 }

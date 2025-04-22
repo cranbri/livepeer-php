@@ -41,7 +41,7 @@ class UpdateAssetRequest extends Request implements HasBody
     /**
      * Define the request body
      *
-     * @return array
+     * @return array<mixed>
      */
     protected function defaultBody(): array
     {

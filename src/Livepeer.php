@@ -17,14 +17,14 @@ use Cranbri\Livepeer\Data\Multistream\UpdateTargetData;
 use Cranbri\Livepeer\Data\Transcode\CreateTranscodingData;
 use Cranbri\Livepeer\Data\Webhook\CreateWebhookData;
 use Cranbri\Livepeer\Data\Webhook\UpdateWebhookData;
-use Cranbri\Livepeer\Enums\src\Requests\AccessControl\ListSigningKeysRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Asset\GetAssetRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Livestream\GetLivestreamRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Livestream\UpdateLivestreamRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Multistream\GetTargetRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Session\ListRecordedSessionsRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Task\ListTasksRequest;
-use Cranbri\Livepeer\Enums\src\Requests\Webhook\ListWebhooksRequest;
+use Cranbri\Livepeer\Requests\AccessControl\ListSigningKeysRequest;
+use Cranbri\Livepeer\Requests\Asset\GetAssetRequest;
+use Cranbri\Livepeer\Requests\Livestream\GetLivestreamRequest;
+use Cranbri\Livepeer\Requests\Livestream\UpdateLivestreamRequest;
+use Cranbri\Livepeer\Requests\Multistream\GetTargetRequest;
+use Cranbri\Livepeer\Requests\Session\ListRecordedSessionsRequest;
+use Cranbri\Livepeer\Requests\Task\ListTasksRequest;
+use Cranbri\Livepeer\Requests\Webhook\ListWebhooksRequest;
 use Cranbri\Livepeer\Exceptions\LivepeerException;
 use Cranbri\Livepeer\Requests\AccessControl\CreateSigningKeyRequest;
 use Cranbri\Livepeer\Requests\AccessControl\DeleteSigningKeyRequest;
@@ -80,12 +80,11 @@ class Livepeer
      * Create a new Livepeer instance
      *
      * @param  string  $apiKey  The Livepeer API key
-     * @param  string|null  $apiVersion  Optional API version
      */
     public function __construct(string $apiKey)
     {
         if (empty($apiKey)) {
-            throw new LivepeerException('API Key is required.');
+            throw new LivepeerException(message: 'API Key is required.');
         }
 
         $this->connector = new LivepeerConnector($apiKey);
@@ -229,7 +228,7 @@ class Livepeer
     /**
      * List all streams
      *
-     * @param  array  $filters
+     * @param  array<string,string>  $filters
      * @return mixed
      * @throws Exception
      */
@@ -588,7 +587,7 @@ class Livepeer
     /**
      * Query Realtime Viewership
      *
-     * @param  array  $filters
+     * @param  array<string,string>  $filters
      * @return mixed
      * @throws Exception
      */
@@ -600,7 +599,7 @@ class Livepeer
     /**
      * Query Viewership Metrics
      *
-     * @param  array  $filters
+     * @param  array<string,string>  $filters
      * @return mixed
      * @throws Exception
      */
@@ -612,7 +611,7 @@ class Livepeer
     /**
      * Query Usage Metrics
      *
-     * @param  array  $filters
+     * @param  array<string,string>  $filters
      * @return mixed
      * @throws Exception
      */
@@ -636,7 +635,7 @@ class Livepeer
     /**
      * Query creator viewership metrics
      *
-     * @param  array  $filters
+     * @param  array<string,string>  $filters
      * @return mixed
      * @throws Exception
      */
