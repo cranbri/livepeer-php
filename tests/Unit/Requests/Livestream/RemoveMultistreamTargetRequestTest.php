@@ -8,6 +8,6 @@ test('remove multistream target request can be created', function () {
 
     expect($request)
         ->toBeInstanceOf(RemoveMultistreamTargetRequest::class)
-        ->and($request->resolveEndpoint())->toBe('/stream/test-stream-id/target/test-target-id')
+        ->and($request->resolveEndpoint())->toBe('/stream/test-stream-id/multistream/test-target-id')
         ->and($request->getMethod())->toBe(Method::DELETE);
 });

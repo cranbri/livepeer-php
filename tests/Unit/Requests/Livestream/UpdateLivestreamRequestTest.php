@@ -20,7 +20,7 @@ test('update livestream request can be created', function () {
         ->toBeInstanceOf(UpdateLivestreamRequest::class)
         ->and($request->resolveEndpoint())->toBe('/stream/test-stream-id')
         ->and($request->getMethod())->toBe(Method::PATCH)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'name' => 'updated-stream',
             'playbackPolicy' => [
                 'type' => 'public',
@@ -37,7 +37,7 @@ test('update livestream request can be created with minimal data', function () {
 
     $request = new UpdateLivestreamRequest('test-stream-id', $data);
 
-    expect($request->body())->toBe([
+    expect($request->body()->all())->toBe([
         'name' => 'updated-stream',
     ]);
 });

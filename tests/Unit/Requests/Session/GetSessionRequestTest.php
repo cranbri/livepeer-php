@@ -6,8 +6,7 @@ use Saloon\Enums\Method;
 test('get session request architecture', function () {
     expect(GetSessionRequest::class)
         ->toBeSaloonRequest()
-        ->toSendGetRequest()
-        ->toUseAcceptsJsonTrait();
+        ->toSendGetRequest();
 });
 
 test('get session request has correct endpoint', function () {

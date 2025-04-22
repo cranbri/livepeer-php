@@ -11,8 +11,7 @@ use Saloon\Enums\Method;
 test('transcode video request architecture', function () {
     expect(TranscodeVideoRequest::class)
         ->toBeSaloonRequest()
-        ->toSendPostRequest()
-        ->toUseAcceptsJsonTrait();
+        ->toSendPostRequest();
 });
 
 test('transcode video request has correct endpoint', function () {

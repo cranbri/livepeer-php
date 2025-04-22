@@ -17,7 +17,7 @@ test('add multistream target request can be created', function () {
         ->toBeInstanceOf(AddMultistreamTargetRequest::class)
         ->and($request->resolveEndpoint())->toBe('/stream/test-stream-id/create-multistream-target')
         ->and($request->getMethod())->toBe(Method::POST)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'source' => 'source',
             'videoOnly' => false,
             'id' => 'test-target-id',

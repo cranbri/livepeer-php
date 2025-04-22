@@ -19,7 +19,7 @@ test('update asset request can be created', function () {
         ->toBeInstanceOf(UpdateAssetRequest::class)
         ->and($request->resolveEndpoint())->toBe('/asset/test-asset-id')
         ->and($request->getMethod())->toBe(Method::PATCH)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'name' => 'updated-asset',
             'playbackPolicy' => [
                 'type' => 'public',
@@ -35,7 +35,7 @@ test('update asset request can be created with minimal data', function () {
 
     $request = new UpdateAssetRequest('test-asset-id', $data);
 
-    expect($request->body())->toBe([
+    expect($request->body()->all())->toBe([
         'name' => 'updated-asset',
     ]);
 });

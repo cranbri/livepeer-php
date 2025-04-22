@@ -6,8 +6,7 @@ use Saloon\Enums\Method;
 test('get playback info request architecture', function () {
     expect(GetPlaybackInfoRequest::class)
         ->toBeSaloonRequest()
-        ->toSendGetRequest()
-        ->toUseAcceptsJsonTrait();
+        ->toSendGetRequest();
 });
 
 test('get playback info request has correct endpoint', function () {

@@ -6,8 +6,7 @@ use Saloon\Enums\Method;
 test('list tasks request architecture', function () {
     expect(ListTasksRequest::class)
         ->toBeSaloonRequest()
-        ->toSendGetRequest()
-        ->toUseAcceptsJsonTrait();
+        ->toSendGetRequest();
 });
 
 test('list tasks request has correct endpoint', function () {

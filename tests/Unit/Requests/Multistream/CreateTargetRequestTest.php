@@ -17,7 +17,7 @@ test('create target request can be created', function () {
         ->toBeInstanceOf(CreateTargetRequest::class)
         ->and($request->resolveEndpoint())->toBe('/multistream/target')
         ->and($request->getMethod())->toBe(Method::POST)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'url' => 'rtmp://example.com/live',
             'name' => 'test-target',
             'disabled' => false,

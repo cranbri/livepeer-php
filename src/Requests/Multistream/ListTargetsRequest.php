@@ -23,6 +23,6 @@ class ListTargetsRequest extends Request
      */
     public function resolveEndpoint(): string
     {
-        return "multistream/target";
+        return "/multistream/target";
     }
 }

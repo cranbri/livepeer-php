@@ -20,7 +20,7 @@ test('url upload request can be created', function () {
         ->toBeInstanceOf(UrlUploadRequest::class)
         ->and($request->resolveEndpoint())->toBe('/asset/upload/url')
         ->and($request->getMethod())->toBe(Method::POST)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'name' => 'test-asset',
             'url' => 'https://example.com/video.mp4',
             'playbackPolicy' => [
@@ -39,7 +39,7 @@ test('url upload request can be created with minimal data', function () {
 
     $request = new UrlUploadRequest($data);
 
-    expect($request->body())->toBe([
+    expect($request->body()->all())->toBe([
         'name' => 'test-asset',
         'url' => 'https://example.com/video.mp4',
         'c2pa' => false,

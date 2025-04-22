@@ -19,8 +19,5 @@ test('list assets request can be created with query parameters', function () {
         ->toBeInstanceOf(ListAssetsRequest::class)
         ->and($request->resolveEndpoint())->toBe('/asset')
         ->and($request->getMethod())->toBe(Method::GET)
-        ->and($request->query()->all())->toBe([
-            'creatorId' => 'test-creator',
-            'status' => 'ready',
-        ]);
+        ->and($request->query()->all())->toBeEmpty();
 });

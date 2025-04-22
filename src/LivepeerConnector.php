@@ -7,10 +7,12 @@ namespace Cranbri\Livepeer;
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AcceptsJson;
 use Saloon\Http\Auth\TokenAuthenticator;
+use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class LivepeerConnector extends Connector
 {
     use AcceptsJson;
+    use AlwaysThrowOnErrors;
     /**
      * Create a new Livepeer Connector instance
      *

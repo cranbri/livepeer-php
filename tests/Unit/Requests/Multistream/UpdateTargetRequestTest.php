@@ -17,7 +17,7 @@ test('update target request can be created', function () {
         ->toBeInstanceOf(UpdateTargetRequest::class)
         ->and($request->resolveEndpoint())->toBe('/multistream/target/test-target-id')
         ->and($request->getMethod())->toBe(Method::PATCH)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'url' => 'rtmp://example.com/live',
             'name' => 'updated-target',
             'disabled' => true,

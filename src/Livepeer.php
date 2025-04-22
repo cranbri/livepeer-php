@@ -85,6 +85,10 @@ class Livepeer
      */
     public function __construct(string $apiKey)
     {
+        if(empty($apiKey)) {
+            throw new LivepeerException('API Key is required.');
+        }
+
         $this->connector = new LivepeerConnector($apiKey);
     }
 

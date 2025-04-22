@@ -20,8 +20,8 @@ class UpdateLivestreamData extends BaseData
      * @param  ?PlaybackPolicyData  $playbackPolicy  Whether the playback policy for an asset or stream is public or signed
      * @param  ?CreatorIdData  $creatorId  The ID of the creator of the asset
      * @param  ?StreamProfileData[]  $profiles
-     * @param bool $record
-     * @param bool $suspended
+     * @param ?bool $record
+     * @param ?bool $suspended
      * @param ?RecordingSpecData $recordingSpec
      * @param ?MultistreamData $multistream
      */
@@ -31,8 +31,8 @@ class UpdateLivestreamData extends BaseData
         public ?PlaybackPolicyData $playbackPolicy = null,
         public ?CreatorIdData $creatorId = null,
         public ?array $profiles = null,
-        public bool $record = false,
-        public bool $suspended = false,
+        public ?bool $record = null,
+        public ?bool $suspended = null,
         public ?RecordingSpecData $recordingSpec = null,
         public ?MultiStreamData $multistream = null
     ) {

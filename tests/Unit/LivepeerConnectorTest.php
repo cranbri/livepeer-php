@@ -17,9 +17,9 @@ test('livepeer connector has correct base url', function () {
 
 test('livepeer connector sets api key in authorization header', function () {
     $connector = new LivepeerConnector(getTestApiKey());
-    $defaultHeaders = $connector->headers()->all();
+    $authenticator = $connector->getAuthenticator();
 
-    expect($defaultHeaders)
-        ->toHaveKey('Authorization')
-        ->and($defaultHeaders['Authorization'])->toBe('Bearer test-api-key');
+    expect($authenticator)
+        ->toHaveProperty('token')
+        ->and($authenticator->token)->toBe('test-api-key');
 });

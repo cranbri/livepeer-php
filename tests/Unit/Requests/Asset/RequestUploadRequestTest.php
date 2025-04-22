@@ -9,7 +9,9 @@ use Saloon\Enums\Method;
 test('request upload request can be created', function () {
     $data = new UploadAssetData(
         name: 'test-asset',
-        playbackPolicy: PlaybackPolicyData::public(),
+        playbackPolicy: new PlaybackPolicyData(
+            type: PlaybackPolicyType::PUBLIC
+        ),
         creatorId: null,
         storage: null,
     );
@@ -20,7 +22,7 @@ test('request upload request can be created', function () {
         ->toBeInstanceOf(RequestUploadRequest::class)
         ->and($request->resolveEndpoint())->toBe('/asset/request-upload')
         ->and($request->getMethod())->toBe(Method::POST)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'name' => 'test-asset',
             'playbackPolicy' => [
                 'type' => 'public',
@@ -37,7 +39,7 @@ test('request upload request can be created with minimal data', function () {
 
     $request = new RequestUploadRequest($data);
 
-    expect($request->body())->toBe([
+    expect($request->body()->all())->toBe([
         'name' => 'test-asset',
         'c2pa' => false,
     ]);

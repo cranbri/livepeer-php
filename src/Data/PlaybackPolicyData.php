@@ -20,9 +20,9 @@ class PlaybackPolicyData extends BaseData
     public function __construct(
         public PlaybackPolicyType $type = PlaybackPolicyType::PUBLIC,
         public ?string $webhookId = null,
-        public ?array $webhookContext = [],
+        public ?array $webhookContext = null,
         public ?int $refreshInterval = null,
-        public ?array $allowedOrigins = []
+        public ?array $allowedOrigins = null
     ) {
     }
 

@@ -9,5 +9,5 @@ test('terminate livestream request can be created', function () {
     expect($request)
         ->toBeInstanceOf(TerminateLivestreamRequest::class)
         ->and($request->resolveEndpoint())->toBe('/stream/test-stream-id/terminate')
-        ->and($request->getMethod())->toBe(Method::POST);
+        ->and($request->getMethod())->toBe(Method::DELETE);
 });

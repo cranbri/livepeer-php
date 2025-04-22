@@ -20,7 +20,7 @@ test('create livestream request can be created', function () {
         ->toBeInstanceOf(CreateLivestreamRequest::class)
         ->and($request->resolveEndpoint())->toBe('/stream')
         ->and($request->getMethod())->toBe(Method::POST)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'name' => 'test-stream',
             'playbackPolicy' => [
                 'type' => 'public',
@@ -37,7 +37,7 @@ test('create livestream request can be created with minimal data', function () {
 
     $request = new CreateLivestreamRequest($data);
 
-    expect($request->body())->toBe([
+    expect($request->body()->all())->toBe([
         'name' => 'test-stream',
     ]);
 });

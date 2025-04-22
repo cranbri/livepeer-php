@@ -1,5 +1,6 @@
 <?php
 
+use Cranbri\Livepeer\LivepeerConnector;
 use Cranbri\Livepeer\Requests\AccessControl\CreateSigningKeyRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
@@ -27,12 +28,8 @@ test('create signing key request can be created', function () {
 });
 
 test('create signing key request sends correct body', function () {
-    $data = [
-        'name' => 'Test Signing Key'
-    ];
-
-    $request = new CreateSigningKeyRequest($data);
-    expect($request->body()->all())->toBe($data);
+    $request = new CreateSigningKeyRequest();
+    expect($request->body()->all())->toBeEmpty();
 });
 
 test('create signing key request returns mocked response', function () {
@@ -46,11 +43,10 @@ test('create signing key request returns mocked response', function () {
         ], 201)
     ]);
 
-    $request = new CreateSigningKeyRequest([
-        'name' => 'Test Signing Key'
-    ]);
+    $connector = new LivepeerConnector(getTestApiKey());
+    $connector->withMockClient($mockClient);
 
-    $response = $mockClient->send($request);
+    $response = $connector->send(new CreateSigningKeyRequest);
 
     expect($response->json())
         ->toHaveKey('id')

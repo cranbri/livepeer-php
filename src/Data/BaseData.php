@@ -22,18 +22,27 @@ abstract class BaseData
             $value = $property->getValue($this);
 
             if ($value !== null) {
-
-                if ($value instanceof \BackedEnum) {
-                    $array[$name] = $value->value;
-                } elseif ($value instanceof BaseData) {
-                    $array[$name] = $value->toArray();
-                } else {
-                    $array[$name] = $value;
-                }
-
+                $array[$name] = $this->processValue($value);
             }
         }
 
         return $array;
+    }
+
+    private function processValue($value)
+    {
+        if ($value instanceof \BackedEnum) {
+            return $value->value;
+        } elseif ($value instanceof BaseData) {
+            return $value->toArray();
+        } elseif (is_array($value)) {
+            $result = [];
+            foreach ($value as $key => $item) {
+                $result[$key] = $this->processValue($item);
+            }
+            return $result;
+        } else {
+            return $value;
+        }
     }
 }

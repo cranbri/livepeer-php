@@ -18,7 +18,7 @@ test('create clip request can be created', function () {
         ->toBeInstanceOf(CreateClipRequest::class)
         ->and($request->resolveEndpoint())->toBe('/clip')
         ->and($request->getMethod())->toBe(Method::POST)
-        ->and($request->body())->toBe([
+        ->and($request->body()->all())->toBe([
             'playbackId' => 'test-playback-id',
             'startTime' => 60,
             'endTime' => 120,
@@ -36,7 +36,7 @@ test('create clip request can be created with minimal data', function () {
 
     $request = new CreateClipRequest($data);
 
-    expect($request->body())->toBe([
+    expect($request->body()->all())->toBe([
         'playbackId' => 'test-playback-id',
         'startTime' => 60,
         'endTime' => 120,

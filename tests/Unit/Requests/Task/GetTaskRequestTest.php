@@ -6,8 +6,7 @@ use Saloon\Enums\Method;
 test('get task request architecture', function () {
     expect(GetTaskRequest::class)
         ->toBeSaloonRequest()
-        ->toSendGetRequest()
-        ->toUseAcceptsJsonTrait();
+        ->toSendGetRequest();
 });
 
 test('get task request has correct endpoint', function () {

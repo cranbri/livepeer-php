@@ -36,7 +36,7 @@ class AddMultistreamTargetRequest extends Request implements HasBody
      */
     public function resolveEndpoint(): string
     {
-        return "/stream{$this->streamId}/create-multistream-target";
+        return "/stream/{$this->streamId}/create-multistream-target";
     }
 
     /**

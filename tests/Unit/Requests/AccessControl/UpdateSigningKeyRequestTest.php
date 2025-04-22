@@ -37,7 +37,7 @@ test('update signing key request can be created with data', function () {
         ->and($request->resolveEndpoint())->toBe('/access-control/signing-key/test-key-id')
         ->and($request->getMethod())->toBe(Method::PATCH)
         ->and($request->body()->all())->toBe([
-            'name' => $keyName,
-            'disabled' => false
+            'disabled' => false,
+            'name' => $keyName
         ]);
 });

@@ -2,6 +2,7 @@
 
 use Cranbri\Livepeer\Data\Webhook\CreateWebhookData;
 use Cranbri\Livepeer\Enums\WebhookEvent;
+use Cranbri\Livepeer\LivepeerConnector;
 use Cranbri\Livepeer\Requests\Webhook\CreateWebhookRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Faking\MockClient;
@@ -49,14 +50,18 @@ test('create webhook request can be created with data', function () {
 });
 
 test('create webhook request sends correct body', function () {
-    $data = [
-        'name' => 'Test Webhook',
-        'url' => 'https://example.com/webhook',
-        'events' => ['asset.ready', 'stream.started']
-    ];
+    $webhookName = 'Test Webhook';
+    $webhookUrl = 'https://example.com/webhook';
+    $events = [WebhookEvent::ASSET_READY, WebhookEvent::STREAM_STARTED];
+
+    $data = new CreateWebhookData(
+        name: $webhookName,
+        url: $webhookUrl,
+        events: $events
+    );
 
     $request = new CreateWebhookRequest($data);
-    expect($request->body()->all())->toBe($data);
+    expect($request->body()->all())->toBe($data->toArray());
 });
 
 test('create webhook request returns mocked response', function () {
@@ -70,13 +75,20 @@ test('create webhook request returns mocked response', function () {
         ], 201)
     ]);
 
-    $request = new CreateWebhookRequest([
-        'name' => 'Test Webhook',
-        'url' => 'https://example.com/webhook',
-        'events' => ['asset.ready', 'stream.started']
-    ]);
+    $webhookName = 'Test Webhook';
+    $webhookUrl = 'https://example.com/webhook';
+    $events = [WebhookEvent::ASSET_READY, WebhookEvent::STREAM_STARTED];
 
-    $response = $mockClient->send($request);
+    $data = new CreateWebhookData(
+        name: $webhookName,
+        url: $webhookUrl,
+        events: $events
+    );
+
+    $request = new CreateWebhookRequest($data);
+    $connector = new LivepeerConnector(getTestApiKey());
+    $connector->withMockClient($mockClient);
+    $response = $connector->send($request);
 
     expect($response->json())
         ->toHaveKey('id')

@@ -31,6 +31,6 @@ class GetPlaybackInfoRequest extends Request
      */
     public function resolveEndpoint(): string
     {
-        return "/task/{$this->playbackId}";
+        return "/playback/{$this->playbackId}";
     }
 }

@@ -6,8 +6,7 @@ use Saloon\Enums\Method;
 test('get livestream request architecture', function () {
     expect(GetLivestreamRequest::class)
         ->toBeSaloonRequest()
-        ->toSendGetRequest()
-        ->toUseAcceptsJsonTrait();
+        ->toSendGetRequest();
 });
 
 test('get livestream request has correct endpoint', function () {

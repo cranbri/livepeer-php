@@ -9,6 +9,9 @@ use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Data\CreatorIdData;
 use Cranbri\Livepeer\Data\StreamProfileData;
 use Cranbri\Livepeer\Data\Transcode\Inputs\S3InputData;
+use Cranbri\Livepeer\Data\Transcode\Inputs\UrlInputData;
+use Cranbri\Livepeer\Data\Transcode\Storage\S3StorageData;
+use Cranbri\Livepeer\Data\Transcode\Storage\Web3StorageData;
 
 class CreateTranscodingData extends BaseData
 {
