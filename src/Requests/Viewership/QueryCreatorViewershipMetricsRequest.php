@@ -22,7 +22,8 @@ class QueryCreatorViewershipMetricsRequest extends Request
      * @param array $filters
      */
     public function __construct(protected array $filters = [])
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

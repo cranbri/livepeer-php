@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Data\Asset;
 
+use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Data\CreatorIdData;
 use Cranbri\Livepeer\Data\EncryptionData;
 use Cranbri\Livepeer\Data\PlaybackPolicyData;
 use Cranbri\Livepeer\Data\StorageData;
 use Cranbri\Livepeer\Data\StreamProfileData;
-use Cranbri\Livepeer\Data\BaseData;
 
 class UrlUploadAssetData extends BaseData
 {

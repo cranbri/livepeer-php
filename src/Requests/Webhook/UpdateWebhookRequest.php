@@ -27,7 +27,9 @@ class UpdateWebhookRequest extends Request implements HasBody
      * @param string $webhookId
      * @param UpdateWebhookData $data
      */
-    public function __construct(protected string $webhookId, protected UpdateWebhookData $data) {}
+    public function __construct(protected string $webhookId, protected UpdateWebhookData $data)
+    {
+    }
 
     /**
      * Define the endpoint for the request

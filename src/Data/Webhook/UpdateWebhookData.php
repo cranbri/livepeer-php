@@ -26,5 +26,6 @@ class UpdateWebhookData extends BaseData
         public ?string $projectId = null,
         public ?string $sharedSecret = null,
         public ?string $streamId = null,
-    ) {}
+    ) {
+    }
 }

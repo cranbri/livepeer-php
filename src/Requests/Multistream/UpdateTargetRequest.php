@@ -27,7 +27,8 @@ class UpdateTargetRequest extends Request implements HasBody
      * @param UpdateTargetData $data
      */
     public function __construct(protected string $targetId, protected UpdateTargetData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

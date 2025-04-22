@@ -40,6 +40,7 @@ abstract class BaseData
             foreach ($value as $key => $item) {
                 $result[$key] = $this->processValue($item);
             }
+
             return $result;
         } else {
             return $value;

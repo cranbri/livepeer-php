@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Requests\AccessControl;
 
-
 use Cranbri\Livepeer\Data\AccessControl\UpdateSigningKeyData;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -29,7 +28,8 @@ class UpdateSigningKeyRequest extends Request implements HasBody
      * @param UpdateSigningKeyData $data
      */
     public function __construct(protected string $keyId, protected UpdateSigningKeyData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

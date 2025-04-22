@@ -23,7 +23,8 @@ class RemoveMultistreamTargetRequest extends Request
      * @param string $targetId
      */
     public function __construct(protected string $streamId, protected string $targetId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

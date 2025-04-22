@@ -13,6 +13,7 @@ use Saloon\Traits\Body\HasJsonBody;
 class UpdateAssetRequest extends Request implements HasBody
 {
     use HasJsonBody;
+
     /**
      * The HTTP method
      *
@@ -24,7 +25,8 @@ class UpdateAssetRequest extends Request implements HasBody
      * Create a new GetAssetRequest instance
      */
     public function __construct(protected string $assetId, protected UpdateAssetData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Data;
 
-
 use Cranbri\Livepeer\Data\Multistream\CreateTargetData;
 
 class AddMultistreamTargetData extends BaseData

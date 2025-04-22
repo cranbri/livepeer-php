@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Requests\Asset;
 
-use Cranbri\Livepeer\Data\Asset\UrlUploadAssetData;
-use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 
 class GetAssetRequest extends Request
 {
@@ -23,7 +20,8 @@ class GetAssetRequest extends Request
      * Create a new GetAssetRequest instance
      */
     public function __construct(protected string $assetId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

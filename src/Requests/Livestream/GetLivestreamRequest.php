@@ -22,7 +22,8 @@ class GetLivestreamRequest extends Request
      * @param string $streamId
      */
     public function __construct(protected string $streamId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

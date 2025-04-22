@@ -20,7 +20,8 @@ class GetSessionRequest extends Request
      * Create a new GetSessionRequest instance
      */
     public function __construct(protected string $sessionId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

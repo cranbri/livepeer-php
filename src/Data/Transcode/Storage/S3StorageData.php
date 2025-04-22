@@ -8,7 +8,6 @@ use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Data\Transcode\S3CredentialsData;
 use Cranbri\Livepeer\Enums\TranscodeInputType;
 
-
 class S3StorageData extends BaseData
 {
     /**

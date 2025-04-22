@@ -17,6 +17,7 @@ test('livepeer connector has correct base url', function () {
 
 test('livepeer connector sets api key in authorization header', function () {
     $connector = new LivepeerConnector(getTestApiKey());
+    /** @var \Saloon\Http\Auth\TokenAuthenticator $authenticator */
     $authenticator = $connector->getAuthenticator();
 
     expect($authenticator)

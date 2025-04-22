@@ -27,7 +27,8 @@ class CreateWebhookRequest extends Request implements HasBody
      * @param CreateWebhookData $data
      */
     public function __construct(protected CreateWebhookData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

@@ -20,7 +20,8 @@ class ListSessionClipsRequest extends Request
      * Create a new ListSessionClipsRequest instance
      */
     public function __construct(protected string $sessionId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

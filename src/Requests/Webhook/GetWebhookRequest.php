@@ -22,7 +22,8 @@ class GetWebhookRequest extends Request
      * @param string $webhookId
      */
     public function __construct(protected string $webhookId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

@@ -27,7 +27,8 @@ class AddMultistreamTargetRequest extends Request implements HasBody
      * @param AddMultistreamTargetData $data
      */
     public function __construct(protected string $streamId, protected AddMultistreamTargetData $data)
-    { }
+    {
+    }
 
     /**
      * Define the endpoint for the request

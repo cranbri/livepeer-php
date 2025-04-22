@@ -22,7 +22,8 @@ class DeleteAssetRequest extends Request
      * @param string $assetId
      */
     public function __construct(protected string $assetId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

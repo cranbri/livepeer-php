@@ -22,7 +22,8 @@ class GetTaskRequest extends Request
      * @param string $taskId
      */
     public function __construct(protected string $taskId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

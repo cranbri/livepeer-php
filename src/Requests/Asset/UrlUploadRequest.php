@@ -27,7 +27,8 @@ class UrlUploadRequest extends Request implements HasBody
      * @param UrlUploadAssetData $data
      */
     public function __construct(protected UrlUploadAssetData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

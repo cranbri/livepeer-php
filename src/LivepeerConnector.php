@@ -4,22 +4,24 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer;
 
+use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AcceptsJson;
-use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class LivepeerConnector extends Connector
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
+
     /**
      * Create a new Livepeer Connector instance
      *
      * @param string $apiKey The Livepeer API key
      */
     public function __construct(protected string $apiKey)
-    {}
+    {
+    }
 
     /**
      * Define the base URL of the Livepeer API

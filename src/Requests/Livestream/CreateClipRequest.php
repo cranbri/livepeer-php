@@ -27,7 +27,8 @@ class CreateClipRequest extends Request implements HasBody
      * @param CreateClipData $data
      */
     public function __construct(protected CreateClipData $data)
-    { }
+    {
+    }
 
     /**
      * Define the endpoint for the request

@@ -28,7 +28,9 @@
     "prefer-stable": true,
     "require-dev": {
         "pestphp/pest": "^3.8",
-        "jonpurvis/lawman": "^4.0"
+        "jonpurvis/lawman": "^4.0",
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "phpstan/phpstan": "^2.1"
     },
     "config": {
         "allow-plugins": {

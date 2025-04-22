@@ -27,7 +27,8 @@ class CreateTargetRequest extends Request implements HasBody
      * @param CreateTargetData $data
      */
     public function __construct(protected CreateTargetData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

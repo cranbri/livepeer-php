@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Data\Webhook;
 
-
 use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Enums\WebhookEvent;
 

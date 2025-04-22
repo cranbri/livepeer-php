@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Cranbri\Livepeer;
 
 use Cranbri\Livepeer\Data\AccessControl\UpdateSigningKeyData;
@@ -85,7 +84,7 @@ class Livepeer
      */
     public function __construct(string $apiKey)
     {
-        if(empty($apiKey)) {
+        if (empty($apiKey)) {
             throw new LivepeerException('API Key is required.');
         }
 
@@ -175,7 +174,7 @@ class Livepeer
      */
     public function listAssets(): mixed
     {
-        return $this->send(new ListAssetsRequest)->json();
+        return $this->send(new ListAssetsRequest())->json();
     }
 
     /**
@@ -333,7 +332,7 @@ class Livepeer
      */
     public function listTasks(): mixed
     {
-        return $this->send(new ListTasksRequest)->json();
+        return $this->send(new ListTasksRequest())->json();
     }
 
     /**
@@ -381,7 +380,7 @@ class Livepeer
      */
     public function listMultistreamTargets(): mixed
     {
-        return $this->send(new ListTargetsRequest)->json();
+        return $this->send(new ListTargetsRequest())->json();
     }
 
     /**
@@ -416,7 +415,7 @@ class Livepeer
      */
     public function listSessions(): mixed
     {
-        return $this->send(new ListSessionsRequest)->json();
+        return $this->send(new ListSessionsRequest())->json();
     }
 
     /**
@@ -451,7 +450,7 @@ class Livepeer
      */
     public function createSigningKey(): mixed
     {
-        return $this->send(new CreateSigningKeyRequest)->json();
+        return $this->send(new CreateSigningKeyRequest())->json();
     }
 
     /**
@@ -487,7 +486,7 @@ class Livepeer
      */
     public function listSigningKeys(): mixed
     {
-        return $this->send(new ListSigningKeysRequest)->json();
+        return $this->send(new ListSigningKeysRequest())->json();
     }
 
     /**
@@ -547,7 +546,7 @@ class Livepeer
      */
     public function listWebhooks(): mixed
     {
-        return $this->send(new ListWebhooksRequest)->json();
+        return $this->send(new ListWebhooksRequest())->json();
     }
 
     /**

@@ -22,7 +22,8 @@ class DeleteTargetRequest extends Request
      * @param string $targetId
      */
     public function __construct(protected string $targetId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

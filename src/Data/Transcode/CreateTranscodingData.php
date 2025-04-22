@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Cranbri\Livepeer\Data\Transcode;
 
-
 use Cranbri\Livepeer\Data\BaseData;
 use Cranbri\Livepeer\Data\CreatorIdData;
 use Cranbri\Livepeer\Data\StreamProfileData;

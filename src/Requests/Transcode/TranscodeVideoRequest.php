@@ -27,7 +27,8 @@ class TranscodeVideoRequest extends Request implements HasBody
      * @param CreateTranscodingData $data
      */
     public function __construct(protected CreateTranscodingData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

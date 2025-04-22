@@ -13,6 +13,7 @@ use Saloon\Traits\Body\HasJsonBody;
 class UpdateLivestreamRequest extends Request implements HasBody
 {
     use HasJsonBody;
+
     /**
      * The HTTP method
      *
@@ -27,7 +28,8 @@ class UpdateLivestreamRequest extends Request implements HasBody
      * @param UpdateLivestreamData $data
      */
     public function __construct(protected string $streamId, protected UpdateLivestreamData $data)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

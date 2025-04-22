@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Cranbri\Livepeer\Data;
 
 use Cranbri\Livepeer\Enums\EncoderType;

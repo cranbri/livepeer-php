@@ -27,7 +27,8 @@ class CreateLivestreamRequest extends Request implements HasBody
      * @param CreateLivestreamData $data
      */
     public function __construct(protected CreateLivestreamData $data)
-    { }
+    {
+    }
 
     /**
      * Define the endpoint for the request

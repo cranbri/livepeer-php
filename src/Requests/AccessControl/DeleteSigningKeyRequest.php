@@ -22,7 +22,8 @@ class DeleteSigningKeyRequest extends Request
      * @param string $keyId
      */
     public function __construct(protected string $keyId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request

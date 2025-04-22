@@ -26,7 +26,9 @@ class RequestUploadRequest extends Request implements HasBody
      *
      * @param UploadAssetData $data
      */
-    public function __construct(protected UploadAssetData $data) {}
+    public function __construct(protected UploadAssetData $data)
+    {
+    }
 
     /**
      * Define the endpoint for the request

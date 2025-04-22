@@ -22,7 +22,8 @@ class QueryPublicTotalViewsMetricsRequest extends Request
      * @param string $playbackId
      */
     public function __construct(protected string $playbackId)
-    {}
+    {
+    }
 
     /**
      * Define the endpoint for the request
