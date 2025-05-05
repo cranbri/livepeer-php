@@ -18,7 +18,7 @@ test('query usage metrics request can be created with filters', function () {
     $filters = [
         'fromTime' => '2024-01-01T00:00:00Z',
         'toTime' => '2024-01-31T23:59:59Z',
-        'timeStep' => '1d'
+        'timeStep' => '1d',
     ];
 
     $request = new QueryUsageMetricsRequest($filters);

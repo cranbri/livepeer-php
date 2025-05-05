@@ -7,4 +7,5 @@ namespace Cranbri\Livepeer\Enums;
 enum TranscodeStorageType: string
 {
     case WEB3_STORAGE = 'web3.storage';
+    case S3 = 's3';
 }

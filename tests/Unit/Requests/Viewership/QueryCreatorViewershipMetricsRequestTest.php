@@ -18,7 +18,7 @@ test('query creator viewership metrics request can be created with filters', fun
     $filters = [
         'fromTime' => '2024-01-01T00:00:00Z',
         'toTime' => '2024-01-31T23:59:59Z',
-        'creatorId' => 'test-creator-id'
+        'creatorId' => 'test-creator-id',
     ];
 
     $request = new QueryCreatorViewershipMetricsRequest($filters);

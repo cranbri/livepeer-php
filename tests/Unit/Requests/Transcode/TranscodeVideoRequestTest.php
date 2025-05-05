@@ -3,8 +3,8 @@
 use Cranbri\Livepeer\Data\Transcode\CreateTranscodingData;
 use Cranbri\Livepeer\Data\Transcode\Inputs\UrlInputData;
 use Cranbri\Livepeer\Data\Transcode\Storage\Web3StorageData;
-use Cranbri\Livepeer\Data\Transcode\Web3CredentialsData;
 use Cranbri\Livepeer\Data\Transcode\TranscodeOutputData;
+use Cranbri\Livepeer\Data\Transcode\Web3CredentialsData;
 use Cranbri\Livepeer\Requests\Transcode\TranscodeVideoRequest;
 use Saloon\Enums\Method;
 

@@ -2,9 +2,9 @@
 
 use Cranbri\Livepeer\LivepeerConnector;
 use Cranbri\Livepeer\Requests\Asset\GetAssetRequest;
+use Saloon\Enums\Method;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Enums\Method;
 
 test('get asset request architecture', function () {
     expect(GetAssetRequest::class)
@@ -22,8 +22,8 @@ test('get asset request returns mocked response', function () {
         GetAssetRequest::class => MockResponse::make([
             'id' => 'test-asset-id',
             'name' => 'Test Asset',
-            'status' => 'ready'
-        ], 200)
+            'status' => 'ready',
+        ], 200),
     ]);
 
     $connector = new LivepeerConnector(getTestApiKey());

@@ -1,7 +1,7 @@
 <?php
 
-use Cranbri\Livepeer\Data\PlaybackPolicyData;
 use Cranbri\Livepeer\Data\Asset\UrlUploadAssetData;
+use Cranbri\Livepeer\Data\PlaybackPolicyData;
 use Cranbri\Livepeer\Requests\Asset\UrlUploadRequest;
 use Saloon\Enums\Method;
 

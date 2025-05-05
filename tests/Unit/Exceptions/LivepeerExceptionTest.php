@@ -1,12 +1,11 @@
 <?php
 
 use Cranbri\Livepeer\Exceptions\LivepeerException;
-use Saloon\Http\Response;
-use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Faking\MockClient;
-use Saloon\Http\Request;
-use Saloon\Http\Connector;
 use Saloon\Enums\Method;
+use Saloon\Http\Connector;
+use Saloon\Http\Faking\MockClient;
+use Saloon\Http\Faking\MockResponse;
+use Saloon\Http\Request;
 
 class TestConnector extends Connector
 {
@@ -30,8 +29,8 @@ test('livepeer exception can be created from response', function () {
     $connector = new TestConnector();
     $mockClient = new MockClient([
         TestRequest::class => MockResponse::make([
-            'message' => 'Resource not found'
-        ], 404)
+            'message' => 'Resource not found',
+        ], 404),
     ]);
 
     $connector->withMockClient($mockClient);
@@ -50,8 +49,8 @@ test('livepeer exception can be created from response without errors array', fun
     $connector = new TestConnector();
     $mockClient = new MockClient([
         TestRequest::class => MockResponse::make([
-            'message' => 'Internal server error'
-        ], 500)
+            'message' => 'Internal server error',
+        ], 500),
     ]);
     $connector->withMockClient($mockClient);
 
@@ -69,8 +68,8 @@ test('livepeer exception can be created from response with error field', functio
     $connector = new TestConnector();
     $mockClient = new MockClient([
         TestRequest::class => MockResponse::make([
-            'error' => 'Invalid API key'
-        ], 401)
+            'error' => 'Invalid API key',
+        ], 401),
     ]);
     $connector->withMockClient($mockClient);
 
@@ -88,8 +87,8 @@ test('livepeer exception can be created from response with no message or error f
     $connector = new TestConnector();
     $mockClient = new MockClient([
         TestRequest::class => MockResponse::make([
-            'data' => null
-        ], 400)
+            'data' => null,
+        ], 400),
     ]);
     $connector->withMockClient($mockClient);
 
@@ -117,7 +116,7 @@ test('livepeer exception can get response body', function () {
     $responseData = ['message' => 'Validation failed', 'errors' => ['field' => 'required']];
     $connector = new TestConnector();
     $mockClient = new MockClient([
-        TestRequest::class => MockResponse::make($responseData, 422)
+        TestRequest::class => MockResponse::make($responseData, 422),
     ]);
     $connector->withMockClient($mockClient);
 

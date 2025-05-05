@@ -45,7 +45,7 @@ test('create webhook request can be created with data', function () {
         ->and($request->body()->all())->toBe([
             'name' => $webhookName,
             'url' => $webhookUrl,
-            'events' => array_map(fn(WebhookEvent $event) => $event->value, $events)
+            'events' => array_map(fn (WebhookEvent $event) => $event->value, $events),
         ]);
 });
 
@@ -71,8 +71,8 @@ test('create webhook request returns mocked response', function () {
             'name' => 'Test Webhook',
             'url' => 'https://example.com/webhook',
             'events' => ['asset.ready', 'stream.started'],
-            'createdAt' => '2024-01-01T00:00:00Z'
-        ], 201)
+            'createdAt' => '2024-01-01T00:00:00Z',
+        ], 201),
     ]);
 
     $webhookName = 'Test Webhook';

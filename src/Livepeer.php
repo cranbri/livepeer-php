@@ -17,20 +17,14 @@ use Cranbri\Livepeer\Data\Multistream\UpdateTargetData;
 use Cranbri\Livepeer\Data\Transcode\CreateTranscodingData;
 use Cranbri\Livepeer\Data\Webhook\CreateWebhookData;
 use Cranbri\Livepeer\Data\Webhook\UpdateWebhookData;
-use Cranbri\Livepeer\Requests\AccessControl\ListSigningKeysRequest;
-use Cranbri\Livepeer\Requests\Asset\GetAssetRequest;
-use Cranbri\Livepeer\Requests\Livestream\GetLivestreamRequest;
-use Cranbri\Livepeer\Requests\Livestream\UpdateLivestreamRequest;
-use Cranbri\Livepeer\Requests\Multistream\GetTargetRequest;
-use Cranbri\Livepeer\Requests\Session\ListRecordedSessionsRequest;
-use Cranbri\Livepeer\Requests\Task\ListTasksRequest;
-use Cranbri\Livepeer\Requests\Webhook\ListWebhooksRequest;
 use Cranbri\Livepeer\Exceptions\LivepeerException;
 use Cranbri\Livepeer\Requests\AccessControl\CreateSigningKeyRequest;
 use Cranbri\Livepeer\Requests\AccessControl\DeleteSigningKeyRequest;
 use Cranbri\Livepeer\Requests\AccessControl\GetSigningKeyRequest;
+use Cranbri\Livepeer\Requests\AccessControl\ListSigningKeysRequest;
 use Cranbri\Livepeer\Requests\AccessControl\UpdateSigningKeyRequest;
 use Cranbri\Livepeer\Requests\Asset\DeleteAssetRequest;
+use Cranbri\Livepeer\Requests\Asset\GetAssetRequest;
 use Cranbri\Livepeer\Requests\Asset\ListAssetsRequest;
 use Cranbri\Livepeer\Requests\Asset\RequestUploadRequest;
 use Cranbri\Livepeer\Requests\Asset\UpdateAssetRequest;
@@ -39,19 +33,24 @@ use Cranbri\Livepeer\Requests\Livestream\AddMultistreamTargetRequest;
 use Cranbri\Livepeer\Requests\Livestream\CreateClipRequest;
 use Cranbri\Livepeer\Requests\Livestream\CreateLivestreamRequest;
 use Cranbri\Livepeer\Requests\Livestream\DeleteLivestreamRequest;
+use Cranbri\Livepeer\Requests\Livestream\GetLivestreamRequest;
 use Cranbri\Livepeer\Requests\Livestream\ListClipsRequest;
 use Cranbri\Livepeer\Requests\Livestream\ListLivestreamsRequest;
 use Cranbri\Livepeer\Requests\Livestream\RemoveMultistreamTargetRequest;
 use Cranbri\Livepeer\Requests\Livestream\TerminateLivestreamRequest;
+use Cranbri\Livepeer\Requests\Livestream\UpdateLivestreamRequest;
 use Cranbri\Livepeer\Requests\Multistream\CreateTargetRequest;
 use Cranbri\Livepeer\Requests\Multistream\DeleteTargetRequest;
+use Cranbri\Livepeer\Requests\Multistream\GetTargetRequest;
 use Cranbri\Livepeer\Requests\Multistream\ListTargetsRequest;
 use Cranbri\Livepeer\Requests\Multistream\UpdateTargetRequest;
 use Cranbri\Livepeer\Requests\Playback\GetPlaybackInfoRequest;
 use Cranbri\Livepeer\Requests\Session\GetSessionRequest;
+use Cranbri\Livepeer\Requests\Session\ListRecordedSessionsRequest;
 use Cranbri\Livepeer\Requests\Session\ListSessionClipsRequest;
 use Cranbri\Livepeer\Requests\Session\ListSessionsRequest;
 use Cranbri\Livepeer\Requests\Task\GetTaskRequest;
+use Cranbri\Livepeer\Requests\Task\ListTasksRequest;
 use Cranbri\Livepeer\Requests\Transcode\TranscodeVideoRequest;
 use Cranbri\Livepeer\Requests\Viewership\QueryCreatorViewershipMetricsRequest;
 use Cranbri\Livepeer\Requests\Viewership\QueryPublicTotalViewsMetricsRequest;
@@ -61,6 +60,7 @@ use Cranbri\Livepeer\Requests\Viewership\QueryViewershipMetricsRequest;
 use Cranbri\Livepeer\Requests\Webhook\CreateWebhookRequest;
 use Cranbri\Livepeer\Requests\Webhook\DeleteWebhookRequest;
 use Cranbri\Livepeer\Requests\Webhook\GetWebhookRequest;
+use Cranbri\Livepeer\Requests\Webhook\ListWebhooksRequest;
 use Cranbri\Livepeer\Requests\Webhook\UpdateWebhookRequest;
 use Exception;
 use Saloon\Exceptions\Request\RequestException;
@@ -374,12 +374,13 @@ class Livepeer
     /**
      * List all multistream targets
      *
+     * @param  string  $userId
      * @return mixed
      * @throws Exception
      */
-    public function listMultistreamTargets(): mixed
+    public function listMultistreamTargets(string $userId): mixed
     {
-        return $this->send(new ListTargetsRequest())->json();
+        return $this->send(new ListTargetsRequest(userId: $userId))->json();
     }
 
     /**

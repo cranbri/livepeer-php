@@ -17,7 +17,7 @@ test('query realtime viewership request has correct endpoint', function () {
 test('query realtime viewership request can be created with filters', function () {
     $filters = [
         'playbackId' => 'test-playback-id',
-        'breakdownBy' => 'country'
+        'breakdownBy' => 'country',
     ];
 
     $request = new QueryRealtimeViewershipRequest($filters);

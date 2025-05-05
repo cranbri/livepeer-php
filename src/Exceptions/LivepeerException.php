@@ -52,14 +52,43 @@ final class LivepeerException extends Exception
      * Create a new exception from a response
      *
      * @param Response $response
-     * @return LivepeerException
+     * @return static
      */
     public static function fromResponse(Response $response): self
     {
         $body = $response->json();
-        $message = is_string($body['message'] ?? null) ? $body['message'] : (is_string($body['error'] ?? null) ? $body['error'] : 'Unknown Livepeer API error');
+        $message = '';
+
+        if (isset($body['message'])) {
+            $message = $body['message'];
+        } elseif (isset($body['error'])) {
+            $message = $body['error'];
+        } elseif (isset($body['errors']) && is_array($body['errors']) && count($body['errors']) > 0) {
+            if (is_string($body['errors'][0])) {
+                $message = $body['errors'][0];
+            } elseif (is_array($body['errors'][0]) && isset($body['errors'][0]['message'])) {
+                $message = $body['errors'][0]['message'];
+            }
+        } elseif (isset($body['errors']) && is_array($body['errors']) && !empty($body['errors'])) {
+            $errorMessages = [];
+            foreach ($body['errors'] as $field => $error) {
+                if (is_string($error)) {
+                    $errorMessages[] = "$field: $error";
+                } elseif (is_array($error) && !empty($error)) {
+                    $errorMessages[] = "$field: " . (is_string($error[0]) ? $error[0] : json_encode($error[0]));
+                }
+            }
+            if (!empty($errorMessages)) {
+                $message = implode('; ', $errorMessages);
+            }
+        }
+
+        if (empty($message)) {
+            $message = 'Unknown Livepeer API error';
+        }
+
         $code = $response->status();
 
-        return new static(message: $message, code: $code, response: $response);
+        return new static($message, $code, $response);
     }
 }

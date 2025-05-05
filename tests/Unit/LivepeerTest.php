@@ -9,5 +9,5 @@ test('livepeer sdk can be instantiated with api key', function () {
 });
 
 test('livepeer sdk throws exception with empty api key', function () {
-    expect(fn() => new Livepeer(''))->toThrow(LivepeerException::class, 'API Key is required.');
+    expect(fn () => new Livepeer(''))->toThrow(LivepeerException::class, 'API Key is required.');
 });

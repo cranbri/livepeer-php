@@ -16,6 +16,10 @@ class ListTargetsRequest extends Request
      */
     protected Method $method = Method::GET;
 
+    public function __construct(protected string $userId)
+    {
+    }
+
     /**
      * Define the endpoint for the request
      *
@@ -24,5 +28,12 @@ class ListTargetsRequest extends Request
     public function resolveEndpoint(): string
     {
         return "/multistream/target";
+    }
+
+    public function defaultQuery(): array
+    {
+        return [
+            'userId' => $this->userId,
+        ];
     }
 }

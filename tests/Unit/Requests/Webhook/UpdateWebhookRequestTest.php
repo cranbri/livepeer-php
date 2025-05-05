@@ -44,6 +44,6 @@ test('update webhook request can be created with data', function () {
         ->and($request->body()->all())->toBe([
             'name' => $webhookName,
             'url' => $webhookUrl,
-            'events' => array_map(fn(WebhookEvent $event) => $event->value, $events)
+            'events' => array_map(fn (WebhookEvent $event) => $event->value, $events),
         ]);
 });

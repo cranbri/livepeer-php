@@ -4,7 +4,7 @@ use Cranbri\Livepeer\Requests\Multistream\ListTargetsRequest;
 use Saloon\Enums\Method;
 
 test('list targets request can be created', function () {
-    $request = new ListTargetsRequest();
+    $request = new ListTargetsRequest(userId: 'uuid');
 
     expect($request)
         ->toBeInstanceOf(ListTargetsRequest::class)

@@ -12,7 +12,7 @@
             "type": "github",
             "url": "https://github.com/sponsors/just-tom"
         }
-    ]
+    ],
     "type": "library",
     "version": "1.0.0",
     "require": {
@@ -43,7 +43,8 @@
         "jonpurvis/lawman": "^4.0",
         "friendsofphp/php-cs-fixer": "^3.75",
         "phpstan/phpstan": "^2.1",
-        "captainhook/captainhook": "^5.25"
+        "captainhook/captainhook": "^5.25",
+        "vlucas/phpdotenv": "^5.6"
     },
     "config": {
         "allow-plugins": {
@@ -52,6 +53,7 @@
     },
     "scripts": {
         "test": "vendor/bin/pest",
+        "test:integration": "vendor/bin/pest -c phpunit.integration.xml",
         "test:coverage": "vendor/bin/pest --coverage",
         "cs:check": "vendor/bin/php-cs-fixer fix --dry-run --diff",
         "cs:fix": "vendor/bin/php-cs-fixer fix",

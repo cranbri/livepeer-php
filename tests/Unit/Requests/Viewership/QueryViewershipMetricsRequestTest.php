@@ -19,7 +19,7 @@ test('query viewership metrics request can be created with filters', function ()
         'fromTime' => '2024-01-01T00:00:00Z',
         'toTime' => '2024-01-31T23:59:59Z',
         'playbackId' => 'test-playback-id',
-        'breakdownBy' => 'browser'
+        'breakdownBy' => 'browser',
     ];
 
     $request = new QueryViewershipMetricsRequest($filters);

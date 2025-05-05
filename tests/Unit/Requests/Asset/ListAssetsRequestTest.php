@@ -13,7 +13,7 @@ test('list assets request can be created', function () {
 });
 
 test('list assets request can be created with query parameters', function () {
-    $request = new ListAssetsRequest;
+    $request = new ListAssetsRequest();
 
     expect($request)
         ->toBeInstanceOf(ListAssetsRequest::class)

@@ -29,7 +29,7 @@ abstract class BaseData
         return $array;
     }
 
-    private function processValue(mixed $value) : mixed
+    private function processValue(mixed $value): mixed
     {
         if ($value instanceof \BackedEnum) {
             return $value->value;

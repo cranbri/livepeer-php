@@ -1,7 +1,7 @@
 <?php
 
-use Cranbri\Livepeer\Data\PlaybackPolicyData;
 use Cranbri\Livepeer\Data\Asset\UpdateAssetData;
+use Cranbri\Livepeer\Data\PlaybackPolicyData;
 use Cranbri\Livepeer\Requests\Asset\UpdateAssetRequest;
 use Saloon\Enums\Method;
 

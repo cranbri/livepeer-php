@@ -38,6 +38,6 @@ test('update signing key request can be created with data', function () {
         ->and($request->getMethod())->toBe(Method::PATCH)
         ->and($request->body()->all())->toBe([
             'disabled' => false,
-            'name' => $keyName
+            'name' => $keyName,
         ]);
 });

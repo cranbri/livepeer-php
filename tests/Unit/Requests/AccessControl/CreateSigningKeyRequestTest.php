@@ -2,9 +2,9 @@
 
 use Cranbri\Livepeer\LivepeerConnector;
 use Cranbri\Livepeer\Requests\AccessControl\CreateSigningKeyRequest;
+use Saloon\Enums\Method;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Enums\Method;
 
 test('create signing key request architecture', function () {
     expect(CreateSigningKeyRequest::class)
@@ -39,14 +39,14 @@ test('create signing key request returns mocked response', function () {
             'name' => 'Test Signing Key',
             'publicKey' => 'test-public-key',
             'privateKey' => 'test-private-key',
-            'createdAt' => '2024-01-01T00:00:00Z'
-        ], 201)
+            'createdAt' => '2024-01-01T00:00:00Z',
+        ], 201),
     ]);
 
     $connector = new LivepeerConnector(getTestApiKey());
     $connector->withMockClient($mockClient);
 
-    $response = $connector->send(new CreateSigningKeyRequest);
+    $response = $connector->send(new CreateSigningKeyRequest());
 
     expect($response->json())
         ->toHaveKey('id')
