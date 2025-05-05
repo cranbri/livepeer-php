@@ -2,8 +2,9 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/cranbri/livepeer-php.svg)](https://packagist.org/packages/cranbri/livepeer-php)
 [![Tests](https://github.com/cranbri/livepeer-php/actions/workflows/tests.yml/badge.svg)](https://github.com/cranbri/livepeer-php/actions/workflows/tests.yml)
+[![PHPStan](https://github.com/cranbri/livepeer-php/actions/workflows/phpstan.yml/badge.svg)](https://github.com/cranbri/livepeer-php/actions/workflows/phpstan.yml)
+[![Check Styling](https://github.com/cranbri/livepeer-php/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/cranbri/livepeer-php/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/cranbri/livepeer-php.svg)](https://packagist.org/packages/cranbri/livepeer-php)
-[![PHP Version](https://img.shields.io/packagist/php-v/cranbri/livepeer-php.svg)](https://packagist.org/packages/cranbri/livepeer-php)
 [![License](https://img.shields.io/github/license/cranbri/livepeer-php)](https://github.com/cranbri/livepeer-php/blob/main/LICENSE.md)
 
 A modern PHP client for the [Livepeer Studio API](https://docs.livepeer.org/reference/api/overview), built on [Saloon](https://docs.saloon.dev/).
@@ -360,7 +361,7 @@ try {
 
 ## API Reference
 
-For detailed information about all available methods and data structures, please refer to the [API Documentation](https://docs.example.com/livepeer-php).
+For detailed information about all available methods and data structures, please refer to the [API Documentation](https://docs.livepeer.org/api-reference).
 
 ## Testing
 

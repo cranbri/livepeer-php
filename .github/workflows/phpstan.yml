@@ -1,4 +1,4 @@
-name: Tests
+name: PHPStan
 
 on:
   push:
@@ -10,25 +10,20 @@ env:
   PHP_CS_FIXER_IGNORE_ENV: 1
 
 jobs:
-  tests:
+  phpstan:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php: [8.3, 8.4]
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
-          coverage: xdebug
+          php-version: '8.4'
+          coverage: none
 
       - name: Install dependencies
         run: |
-          composer update --prefer-dist --no-interaction --no-suggest      
+          composer update --prefer-dist --no-interaction --no-suggest
 
-      - name: Run tests
-        run: vendor/bin/pest
-
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan --error-format=github
