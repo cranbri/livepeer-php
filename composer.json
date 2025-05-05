@@ -57,7 +57,7 @@
         "test:coverage": "vendor/bin/pest --coverage",
         "cs:check": "vendor/bin/php-cs-fixer fix --dry-run --diff",
         "cs:fix": "vendor/bin/php-cs-fixer fix",
-        "stan": "vendor/bin/phpstan analyse",
+        "stan": "vendor/bin/phpstan analyse src",
         "check": [
             "@cs:check",
             "@stan",

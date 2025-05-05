@@ -26,3 +26,5 @@ jobs:
         run: vendor/bin/pest
       - name: Check coding standards
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
+      - name: Check static analysis
+        run: vendor/bin/phpstan analyse src
