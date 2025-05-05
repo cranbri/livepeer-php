@@ -13,7 +13,7 @@ A modern PHP client for the [Livepeer Studio API](https://docs.livepeer.org/refe
 
 - Full API coverage for Livepeer Studio
 - Type-safe request/response handling
-- Modern PHP 8.1+ with strict typing
+- Modern PHP 8.2+ with strict typing
 - Comprehensive test suite
 - Exception handling
 - Expressive fluent interface
@@ -21,7 +21,7 @@ A modern PHP client for the [Livepeer Studio API](https://docs.livepeer.org/refe
 
 ## Requirements
 
-- PHP 8.1 or higher
+- PHP 8.2 or higher
 - Composer
 
 ## Installation
