@@ -7,7 +7,6 @@ namespace Cranbri\Livepeer\Enums;
 enum WebhookEvent: string
 {
     case STREAM_STARTED = 'stream.started';
-    case STREAM_DETECTION = 'stream.detection';
     case STREAM_IDLE = 'stream.idle';
     case RECORDING_READY = 'recording.ready';
     case RECORDING_STARTED = 'recording.started';
@@ -15,7 +14,6 @@ enum WebhookEvent: string
     case MULTISTREAM_CONNECTED = 'multistream.connected';
     case MULTISTREAM_ERROR = 'multistream.error';
     case MULTISTREAM_DISCONNECTED = 'multistream.disconnected';
-    case PLAYBACK_USER_NEW = 'playback.user.new';
     case PLAYBACK_ACCESS_CONTROL = 'playback.accessControl';
     case ASSET_CREATED = 'asset.created';
     case ASSET_UPDATED = 'asset.updated';
