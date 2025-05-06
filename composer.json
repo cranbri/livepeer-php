@@ -14,7 +14,7 @@
         }
     ],
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "require": {
         "php": "^8.2",
         "saloonphp/saloon": "^3.11"
